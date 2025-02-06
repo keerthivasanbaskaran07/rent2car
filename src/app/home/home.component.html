@@ -1,0 +1,66 @@
+
+<nav class="navbar navbar-expand-lg bg-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#" style="color: #81b8df;">Rent2Car</a>
+      <span> <a class="nav-link profile" href="./profile.html"><i class="ri-contacts-fill pe-2"></i>Profile</a></span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#hero">Home</a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['accSubscription']" class="nav-link">Subscription</a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['accOffers']" class="nav-link">Offers</a>
+          </li>
+          <li  ngbDropdown class="d-inline-block ">
+            <a class="more" id="dropdownBasic1" ngbDropdownToggle>
+              More
+            </a>
+            <ul ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <li class="nav-item">
+                <a  ngbDropdownItem >components</a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li class="nav-item">
+                <a  ngbDropdownItem >Review</a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li class="nav-item">
+                <a  ngbDropdownItem >Top Brands</a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="nav-item">
+              <a  ngbDropdownItem >Contact</a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="nav-item">
+              <a  ngbDropdownItem >Orders</a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li class="nav-item">
+              <a  ngbDropdownItem >Wishlist</a>
+            </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./cart.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#help">help</a>
+          </li>
+         </ul>
+         <!-- <form class="d-flex">
+          <span id="lgiBtn"><a href="./login.html" class="btn btn-brand">Login</a></span>                 
+          <span id="lgoBtn"><button class="btn btn-brand" type="button" onclick="logout()">Logout</button></span>
+      </form> -->
+        <span id="lgiBtn"><a href="#" class="btn btn-brand ms-lg-3">Log In</a></span>
+        <span id="lgoBtn"><button class="btn btn-brand ms-lg-3" type="button" (click)="gotoLoginPage()">Log Out</button></span>
+      </div>
+    </div>
+  </nav>
