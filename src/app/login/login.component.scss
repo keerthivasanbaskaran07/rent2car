@@ -1,48 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Carrois+Gothic+SC&family=Megrim&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*variable*/
+:host{
+    --c-dark: #081b29;
+    --c-brand: #00abf0;
+    --c-brand-light:#4ec0ed;
+    --c-brand-rgb:19, 141, 117;
+    --c-light-rgb: 0,0,0;
+    --c-body: #727272;
+    --font-style:"Poppins", serif;
+    --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    --transition: all 0.5s ease;
 
+}
 * {
-    margin: 0;
-    padding: 0;
+    
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+   
 }
 
 
-body {
-    min-height: 100vh;
-    background-image: linear-gradient(to right, #081b29 0%, #081b29 50%, #ffffff 50%, #ffffff 100%);
+// body {
+//     min-height: 100vh;
+    
 
-}
+// }
 
 
 
-#sign {
-    position: relative;
-    left: 50%;
+// #sign {
+//     position: relative;
+//     left: 50%;
+//     background-color: #7000f0;
+//     box-shadow: var(--box-shadow);
     
     
-}
+// }
 
-#sign .form-control {
-    border-radius: 0;
+// #sign .form-control {
+//     border-radius: 0;
 
-}
+// }
 
-#sign .form-control:focus {
-    box-shadow: none;
-    border-color: #7000f0;
-}
+// #sign .form-control:focus {
+//     box-shadow: none;
+//     border-color: #7000f0;
+// }
 
-#sign p {
-    color: #999999;
-}
+// #sign p {
+//     color: #999999;
+// }
 
 #icon {
     margin-right: 10px;
 
 }
 
-.line {
+.line2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
@@ -50,8 +64,8 @@ body {
     color: #999999;
 }
 
-.line::before,
-.line::after {
+.line2::before,
+.line2::after {
     content: "";
     height: 2px;
     background-color: black;
@@ -91,4 +105,49 @@ body {
     #sign{
         height: 100v;
     }
+}
+/*variable*/
+:host{
+    --c-dark: #081b29;
+    --c-brand: #00abf0;
+    --c-brand-light:#4ec0ed;
+    --c-brand-rgb:19, 141, 117;
+    --c-light-rgb: 0,0,0;
+    --c-body: #727272;
+    --font-style:"Poppins", serif;
+    --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    --transition: all 0.5s ease;
+
+}
+*{
+    font-family: var(--font-style);
+}
+
+/*contact*/
+#contact {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-style);
+}
+
+#contact::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(var(--c-light-rgb), 0.5), rgba(var(--c-light-rgb), 0.5)), url(../../assets/images/image4.jpg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#contact .form-control {
+    border-radius: 0;
+}
+
+#contact .form-control:focus {
+    box-shadow: none;
+    border-color: var(--c-brand);
 }

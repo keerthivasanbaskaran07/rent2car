@@ -2,9 +2,9 @@
 
 
 /*variable*/
-:root{
+:host{
     --c-dark: #081b29;
-    --c-brand: #00abf0;
+    --c-brand: #7000f0;
     --c-brand-light:#4ec0ed;
     --c-brand-rgb:19, 141, 117;
     --c-light-rgb: 0,0,0;
@@ -51,7 +51,7 @@ footer ul {
 footer .line {
     width: 40px;
     height: 4px;
-    background-color:#7000f0;
+    background-color: var(--c-brand);
     margin-top: 12px;
     margin-bottom: 24px;
 }
@@ -67,6 +67,6 @@ footer .line {
 }
 
 .social-icons a:hover {
-    background-color: #7000f0;
+    background-color: var(--c-brand);
     color: white;
 }

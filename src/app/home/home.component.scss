@@ -2,7 +2,7 @@
 
 
 /*variable*/
-:root{
+:host{
     --c-dark: #081b29;
     --c-brand: #00abf0;
     --c-brand-light:#4ec0ed;
@@ -14,76 +14,10 @@
     --transition: all 0.5s ease;
 
 }
-*{
+
+#hero{
     font-family: var(--font-style);
-    font-size: 18px;
-}
-/*navbar*/
-.navbar {
-    box-shadow: var(--box-shadow);
-    font-family: var(--font-style);
-    color: #ffffff;
-}
-
-.navbar-nav .nav-link {
-     font-weight: 500;
-     color: var(--c-dark) !important;
-
-}
-.more{
-    font-weight: 500;
-    color: var(--c-dark) !important;
-    text-decoration: none;
-    cursor: pointer;
-    position: relative;
-    top: 8px;
-}
-.more:hover{
-    color: #7000f0 !important ;
-}
-.navbar-nav .nav-link:hover{
-    color: #7000f0 !important ;
-}
-.profile{
-    font-weight: 500;
-    color: var(--c-dark) !important;
-    
-}
-.profile:hover{
-    color:#7000f0 !important ;
-}
-/*btn*/
-
-.btn {
-    font-size: 14px;
-    text-transform: uppercase;
-    
-    
-}
-#SeaBtn{
-    position: relative;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-#SeaBtn2{
-    border-radius: 0;
-}
-
-#SeaBtn2:focus{
-    box-shadow: 0;
-    border-color: var(--c-brand);
-}
-
-.btn.btn-brand {
-    background-color:#7000f0;
-    border-color: #7000f0;
-    color: white;
-    border-radius:0;
-    font-weight:600;
-    padding: 5px 30px;
-}
-.btn.btn-light{
-    border-radius: 0;
-    font-weight: 600;
+    background: linear-gradient(rgba(var(--c-light-rgb), 0.507), rgba(var(--c-light-rgb), 0.438)),url('../../assets/images/chennai.jpg');
+    background-position: center;
+    background-size: cover;
 }

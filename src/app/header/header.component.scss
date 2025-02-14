@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Carrois+Gothic+SC&family=Megrim&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/*variable*/
+:host{
+    --c-dark: #ffffff;
+    --c-brand: #7000f0;
+    --c-brand-light:#4ec0ed;
+    --c-brand-rgb:19, 141, 117;
+    --c-light-rgb: 0,0,0;
+    --c-body: #727272;
+    --font-style:"Poppins", serif;
+    --box-shadow: 0px 15px 25px rgba(255, 255, 255, 0.342);
+    --transition: all 0.5s ease;
+
+}
+*{
+    font-family: var(--font-style);
+    font-size: 18px;
+}
+/*navbar*/
+.navbar {
+    box-shadow: var(--box-shadow);
+    font-family: var(--font-style);
+    color: #ffffff;
+}
+
+.navbar-nav .nav-link {
+     font-weight: 500;
+     color: var(--c-dark) !important;
+
+}
+.more{
+    font-weight: 500;
+    color: var(--c-dark) !important;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    top: 8px;
+}
+.more:hover{
+    color: #7000f0 !important ;
+}
+.navbar-nav .nav-link:hover{
+    color: var(--c-brand) !important ;
+}
+.profile{
+    font-weight: 500;
+    color: var(--c-dark) !important;
+    
+}
+.profile:hover{
+    color:#7000f0 !important ;
+}
+/*btn*/
+
+.btn {
+    font-size: 14px;
+    text-transform: uppercase;
+    
+    
+}
+#SeaBtn{
+    position: relative;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#SeaBtn2{
+    border-radius: 0;
+}
+
+#SeaBtn2:focus{
+    box-shadow: 0;
+    border-color: var(--c-brand);
+}
+
+.btn.btn-brand {
+    background-color:#7000f0;
+    border-color: #7000f0;
+    color: white;
+    border-radius:0;
+    font-weight:600;
+    padding: 5px 30px;
+}
+.btn.btn-light{
+    border-radius: 0;
+    font-weight: 600;
+}
