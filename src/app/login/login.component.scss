@@ -2,7 +2,7 @@
 /*variable*/
 :host{
     --c-dark: #081b29;
-    --c-brand: #00abf0;
+    --c-brand: #7000f0;
     --c-brand-light:#4ec0ed;
     --c-brand-rgb:19, 141, 117;
     --c-light-rgb: 0,0,0;
@@ -19,37 +19,6 @@
    
 }
 
-
-// body {
-//     min-height: 100vh;
-    
-
-// }
-
-
-
-// #sign {
-//     position: relative;
-//     left: 50%;
-//     background-color: #7000f0;
-//     box-shadow: var(--box-shadow);
-    
-    
-// }
-
-// #sign .form-control {
-//     border-radius: 0;
-
-// }
-
-// #sign .form-control:focus {
-//     box-shadow: none;
-//     border-color: #7000f0;
-// }
-
-// #sign p {
-//     color: #999999;
-// }
 
 #icon {
     margin-right: 10px;
@@ -83,19 +52,21 @@
 }
 
 .btn.btn-brand {
-    background-color:#7000f0;
+    background-color:var(--c-brand);
     border-color: var#3cb9eb;
     color: white;
     border-radius: 0;
     font-weight: 600;
     padding: 8px 20px;
     text-decoration: none;
+    transition: var(--transition);
 }
 
 .btn.btn-brand:hover {
     background-color:#852bed;
     border-color: #3cb9eb;
     color: black;
+    transform: translateY(20%);
 }
 
 @media screen and (min-width:768px) {
@@ -106,35 +77,20 @@
         height: 100v;
     }
 }
-/*variable*/
-:host{
-    --c-dark: #081b29;
-    --c-brand: #00abf0;
-    --c-brand-light:#4ec0ed;
-    --c-brand-rgb:19, 141, 117;
-    --c-light-rgb: 0,0,0;
-    --c-body: #727272;
-    --font-style:"Poppins", serif;
-    --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
-    --transition: all 0.5s ease;
-
-}
-*{
-    font-family: var(--font-style);
-}
 
 /*contact*/
 #contact {
     position: relative;
     z-index: 2;
     font-family: var(--font-style);
+    
 }
 
 #contact::after {
     content: "";
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(var(--c-light-rgb), 0.5), rgba(var(--c-light-rgb), 0.5)), url(../../assets/images/image4.jpg);
+    background: url(../../assets/images/684\ Desktop\ Wallpaper.png);
     background-position: center;
     background-size: cover;
     position: absolute;

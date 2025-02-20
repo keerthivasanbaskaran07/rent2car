@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Carrois+Gothic+SC&family=Megrim&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 :host{
     --c-dark: #081b29;
     --c-brand: #7000f0;
@@ -8,7 +7,7 @@
     --c-light-rgb: 0,0,0;
     --c-body: #727272;
     --font-style:"Poppins", serif;
-    --box-shadow: 10px 10px 25px rgba(152, 7, 255, 0.674);
+    --box-shadow: 10px 10px 25px rgba(152, 7, 255, 0.674);;
     --transition: all 0.5s ease;
 
 }
@@ -25,47 +24,42 @@
 } */
 
 .wrapper{
-    background-color: var(--c-dark);
+    background-color: #081b29;
     padding: 0 20px 0 20px;
 
 }
 .main{
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    position: relative;
-    left:150px;
-    
 
 }
 .row{
-    width: 1200px;
+    width: 1000px;
     height: 650px;
     background: #fff;
     box-shadow: var(--box-shadow);
-    
 }
 .side-image{
-    background-image: url('../../../assets/images/regi3-car.jpg');
+    background-image: url('../../../assets/images/profile-car.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    overflow: hidden;
     transition: var(--transition);
-
 
 }
 .side-image:hover{
     transform: scale(1.05);
 }
+
 .lap{
     width: 35px;
     position: absolute;
     top: 30px;
     left: 30px;
-    color: var(--c-brand);
+    color: #7000f0;
 }
 .text{
     position: absolute;
@@ -82,7 +76,6 @@
     align-items: center;
     position: relative;
     transition: var(--transition);
-    
 }
 .right:hover{
     transform: scale(1.05);
@@ -94,7 +87,7 @@
 .input-box h2{
     font-weight: 700;
     text-align: center;
-    margin-bottom: 45px;
+    margin-bottom: 20px;
 
 }
 /* .form-floating{
@@ -113,19 +106,53 @@
 }
 .form-control:focus {
     box-shadow: none;
-    border-color: var(--c-brand);
+    border-color:var(--c-brand);
 }
 
-.submit{
+.button{
+    margin-top: 10px;
+    margin-left: 25%;
+    
+}
+
+.button .btn{
+    border-radius: 0;
+    border: none;
+    outline: none;
+    background: #7000f0;
+    transition: .4s;
+    margin: 5px;
+    padding: 10px;
+
+}
+.button .btn:hover{
+    background: #a04cff;
+    transform: translateY(20%);
+    
+
+}
+.off{
+    text-align: center;
+    margin-top: 10px;
+}
+.off a{
+    text-decoration: none;
+    
+}
+.off a:hover{
+    color: red;
+    transition: 0.3s;
+}
+
+/* .button{
     margin-top: 20px;
     border: none;
     outline: none;
-    background: var(--c-brand);
+    background: #00abf0;
     transition: .4s;
-    padding: 5px 20px;
+    margin-left: 25px;
 }
 .submit:hover{
-    background: var(--c-brand-light);
-    transform: translateY(20%);
+    background: #27bd9f;
     
-}
+} */

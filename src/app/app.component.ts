@@ -12,7 +12,7 @@ import { HeaderComponent } from "./header/header.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, LoginComponent, OffersComponent, HomeComponent, SubscriptionComponent, FormsModule, RouterModule, FooterComponent, HeaderComponent],
+  imports: [CommonModule, FormsModule, RouterModule, FooterComponent, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

@@ -1,79 +1,33 @@
-<!-- 
-<div class="col-6">
-    <section id="sign">
-        <div class="col-lg-12" data-aos="fade-up-right" data-aos-delay="300" data-aos-duration="1000">  
-            <form action="#" class="row g-3 p-lg-5 p-4 bg-white theme-shadow">
-                <div>
-                    <h1>Login</h1>
-                    <h6>
-                        <p class="para mt-5">Don't have an account?<a href="./SignIn.html">Signup</a></p>
-                    </h6>
-                </div>
-                <div class="form-floating  col-lg-12 d-grid mb-5 mt-4">
-                    <button class="btn btn-brand"><i class="ri-google-fill" id="icon"></i><a href="./SignIn.html"></a>Sign with
-                        google</button>
-                        <a href="./SignIn.html" class="btn btn-brand"> <i class="ri-google-fill" id="icon"></i>Sign with
-                            google</a>
-                </div>
-                <div>
-                    <h6 class="line">Or Login New Account</h6>
-                </div>
 
-
-                <div class="form-floating  col-lg-12 mb-3 mt-4">
-                    <input type="text" class="form-control" id="Username1"
-                        placeholder="name@example.com" required>
-                    <label for="Username">Enter Name</label>
-                </div>
-                <div class="form-floating  col-lg-12 mb-3">
-                    <input type="password" class="form-control" id="Userpassword2"
-                        placeholder="name@example.com" required>
-                    <label for="Userpassword">Enter Password</label>
-                </div>
-                <div>
-                    <a href="./Forgetpswd.html">Forget Password ?</a>
-                </div>
-                <div class="form-check mt-4">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Keep me logged in
-                    </label>
-                </div>
-
-                <div class="form-floating  col-lg-12 d-grid mt-3">
-                    <button class="btn btn-brand" onclick="checkLogin()">login</button>
-                </div>
-
-            </form>
-
-        </div>
-
-</section>
-</div> -->
 <section class="section-padding bg-light" id="contact">
-    <div class="container">
+    <div class="container col-6" [formGroup]='LoginForm'>
       <div class="row">
         <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
           <div class="section-title">
-            <h1 class="display-4 text-white fw-bold">Gete in touch</h1>
+            <h1 class="display-4 text-white fw-bold">Rent 2 Car</h1>
             <div class="line bg-white"></div>
-            <p class=" text-white">We love to craft digital experiances for brands rather than crap and more lorem ipsums and do crazy skills</p>
+            <p class=" text-white">We Provide good car for rental in lower cost</p>
 
           </div>
         </div>
       </div>
-      <form action="#" class="row g-3 p-lg-5 p-4 bg-white theme-shadow">
+      <form action="#" class="row-12 g-3 p-lg-5 p-4 bg-white theme-shadow">
+        <div class="row mt-4" *ngIf="errMsg">
+            <ngb-alert [dismissible] = "true">
+                <strong>Error! </strong>{{errMsg}}.
+            </ngb-alert>
+        </div>
         <div>
             <h1>Login</h1>
             <h6>
-                <p class="para mt-5">Don't have an account?<a href="./SignIn.html">Signup</a></p>
+                <p class="para mt-5">Don't have an account?<a [routerLink]="['/register']">Signup</a></p>
             </h6>
         </div>
         <div class="form-floating  col-lg-12 d-grid mb-5 mt-4">
-            <button class="btn btn-brand"><i class="ri-google-fill" id="icon"></i><a href="./SignIn.html"></a>Sign with
+            <button class="btn btn-brand" (click)="gotoRegisterPage()"><i class="ri-google-fill" id="icon"></i>Sign with
                 google</button>
-                <a href="./SignIn.html" class="btn btn-brand"> <i class="ri-google-fill" id="icon"></i>Sign with
-                    google</a>
+                <!-- <a href="./SignIn.html" class="btn btn-brand"> <i class="ri-google-fill" id="icon"></i>Sign with
+                    google</a> -->
         </div>
         <div>
             <h6 class="line2">Or Login New Account</h6>
@@ -81,17 +35,17 @@
 
 
         <div class="form-floating  col-lg-12 mb-3 mt-4">
-            <input type="text" class="form-control" id="Username1"
-                placeholder="name@example.com" required>
+            <input type="text" class="form-control" id="UserName" name="UserName" placeholder="name@example.com" required formControlName="UserName">
             <label for="Username">Enter Name</label>
+            <div *ngIf="LoginForm.get('UserName')?.hasError('required') && isSubmitted" class="text-danger">First enter the UserName</div>
         </div>
         <div class="form-floating  col-lg-12 mb-3">
-            <input type="password" class="form-control" id="Userpassword2"
-                placeholder="name@example.com" required>
-            <label for="Userpassword">Enter Password</label>
+            <input type="Password" class="form-control" id="Password" name="Password" placeholder="name@example.com" required formControlName="Password">
+            <label for="Password">Enter Password</label>
+            <div *ngIf="LoginForm.get('Password')?.hasError('required') && isSubmitted" class="text-danger">First enter the password</div>
         </div>
         <div>
-            <a href="./Forgetpswd.html">Forget Password ?</a>
+            <a [routerLink]="['/forgetpswd']">Forget Password ?</a>
         </div>
         <div class="form-check mt-4">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
@@ -101,10 +55,10 @@
         </div>
 
         <div class="form-floating  col-lg-12 d-grid mt-3">
-            <button class="btn btn-brand" onclick="checkLogin()">login</button>
+            <button class="btn btn-brand" (click)="checkLogin()">login</button>
         </div>
 
-    </form>
+       </form>
     </div>
 
 

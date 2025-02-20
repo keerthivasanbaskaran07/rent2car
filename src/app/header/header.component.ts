@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { SessionService } from '../services/session.service';
 
 @Component({
   selector: 'app-header',
@@ -12,11 +13,19 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  constructor(private router:Router){}
+  constructor(private router:Router, private sessionService: SessionService){}
 
   gotoLoginPage(){
     this.router.navigate(['/loginAcc']);
   }
+  
+  logOutPage() {
+    this.sessionService.logoutSession();
+    alert('account successfully logout')
+  }
 
 
 }
+
+   
+  

@@ -8,7 +8,7 @@
     --c-light-rgb: 0,0,0;
     --c-body: #727272;
     --font-style:"Poppins", serif;
-    --box-shadow: 10px 10px 25px rgba(152, 7, 255, 0.674);
+    --box-shadow: 10px 10px 25px rgba(152, 7, 255, 0.674);;
     --transition: all 0.5s ease;
 
 }
@@ -25,47 +25,42 @@
 } */
 
 .wrapper{
-    background-color: var(--c-dark);
+    background-color: #081b29;
     padding: 0 20px 0 20px;
 
 }
 .main{
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    position: relative;
-    left:150px;
-    
 
 }
 .row{
-    width: 1200px;
-    height: 650px;
+    width: 900px;
+    height: 550px;
     background: #fff;
     box-shadow: var(--box-shadow);
-    
 }
 .side-image{
-    background-image: url('../../../assets/images/regi3-car.jpg');
+    background-image: url('../../../assets/images/car-forget.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    overflow: hidden;
     transition: var(--transition);
-
 
 }
 .side-image:hover{
     transform: scale(1.05);
 }
+
 .lap{
     width: 35px;
     position: absolute;
     top: 30px;
     left: 30px;
-    color: var(--c-brand);
+    color: #00abf0;
 }
 .text{
     position: absolute;
@@ -113,19 +108,18 @@
 }
 .form-control:focus {
     box-shadow: none;
-    border-color: var(--c-brand);
+    border-color: #7000f0;
 }
 
 .submit{
     margin-top: 20px;
     border: none;
     outline: none;
-    background: var(--c-brand);
+    background: #7000f0;
     transition: .4s;
     padding: 5px 20px;
 }
 .submit:hover{
-    background: var(--c-brand-light);
+    background: #9141ec;
     transform: translateY(20%);
-    
 }

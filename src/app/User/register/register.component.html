@@ -1,1 +1,48 @@
-<p>register works!</p>
+<div class="wrapper">
+    <div class="container main">
+      <div class="row" [formGroup]="registerForm">
+        
+        <div class="col-md-6 side-image">
+          <h2 class="lap" data-aos="fade-down" data-aos-delay="500" data-aos-duration="1000">R2C</h2>
+          <p class="text"></p>
+
+        </div>
+        <div class="col-md-6 right" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000" >
+          <div class="input-box">
+            <h2 >Sign In</h2>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="userName" name="userName" placeholder="Enter Your UserName" formControlName="userName" >
+              <label for="floatingInput">UserName</label>
+              <div *ngIf="registerForm.get('userName')?.hasError('required') && isFromSubmitted" class="text-danger"> Username is Mandatory </div>
+             
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="pswd" name="pswd"  placeholder="Password" formControlName="pswd">
+              <label for="floatingPassword">Password</label>
+              <div *ngIf="registerForm.get('pswd')?.hasError('required') && isFromSubmitted" class="text-danger">  minimum lenght of 8 characters</div>
+              
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="cfpswd" name="cfpswd" placeholder="ConfirmPassword" formControlName="cfPswd">
+              <label for="floatingPassword">ConfirmPassword</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Mobile" formControlName="mobile">
+              <label for="floatingMobile">Mobile</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" formControlName="email">
+                <label for="floatingMobile">Email</label>
+              </div>
+            <div class=" submit d-grid gap-2 mb-2">
+              <button class="btn btn-brand" type="submit" value="Sign In"  (click)="registerUser()">Sign In</button>
+            </div>
+
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>

@@ -9,6 +9,8 @@ import { AcconutAdminComponent } from './Account/acconut-admin/acconut-admin.com
 import { CloseAccountComponent } from './Account/close-account/close-account.component';
 import { CreateAccountComponent } from './Account/create-account/create-account.component';
 import { ViewAccountComponent } from './Account/view-account/view-account.component';
+import { ProfileComponent } from './User/profile/profile.component';
+import { ForgetPswdComponent } from './User/forget-pswd/forget-pswd.component';
 
 export const routes: Routes = [
     {path:'loginAcc', component:LoginComponent},
@@ -20,5 +22,7 @@ export const routes: Routes = [
     {path:'accAdmin', component:AcconutAdminComponent},
     {path:'closeAcc', component:CloseAccountComponent},
     {path:'createAcc', component:CreateAccountComponent},
-    {path:'viewAcc', component:ViewAccountComponent}
+    {path:'viewAcc', component:ViewAccountComponent},
+    {path:'profile', component:ProfileComponent},
+    {path:'forgetpswd', component:ForgetPswdComponent}
 ];
