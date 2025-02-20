@@ -22,8 +22,10 @@ import { Injectable } from "@angular/core";
       return this.http.put(apiUrl, requestBody);
     }
 
-    PatchData(apiUrl:string,requestBody:any, dataId:string)
-    apiUrl +=' /'
+    patchData(apiUrl:string,requestBody:any, dataId:string){
+      apiUrl +='/'+dataId;
+      return this.http.patch(apiUrl, requestBody);
+    }
   
     deleteData(apiUrl:string, dataId:string){
       apiUrl += '/'+dataId;

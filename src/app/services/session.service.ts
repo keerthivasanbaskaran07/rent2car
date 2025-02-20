@@ -19,8 +19,12 @@ export class SessionService {
     if(userId == '')
     {
       alert("Session Expired .. Please login again....");
-        this.router.navigate(['/login']);
+        this.router.navigate(['/loginAcc']);
     }
+  }
+
+  getUserId(){
+    return sessionStorage.getItem('UserId') || '';
   }
 
   isSessionAvailable(){

@@ -62,7 +62,7 @@ export class LoginComponent {
       //   );
       // }
       if(this.LoginForm.status == 'VALID'){
-        let apiUrl = apiUrls.userApi + '?serName=' + this.LoginForm.get('userName')?.value + '&password=' + this.LoginForm.get('Password')?.value;
+        let apiUrl = apiUrls.userApi + '?userName=' + this.LoginForm.get('UserName')?.value + '&password=' + this.LoginForm.get('Password')?.value;
         this.userApi.getData(apiUrl).subscribe(
           (responseData:any) => {
             console.log(responseData);
