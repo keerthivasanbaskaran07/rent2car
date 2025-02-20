@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit{
       address : new FormControl('')
     }
   );
-responseData: any;
+
 
   constructor(private apiService: ApiService, private sessionSer:SessionService){
     this.sessionSer.validateUserSession();
@@ -54,7 +54,7 @@ responseData: any;
 
   }
 
-  updateProfile(responseData : any){
+  updateProfile(){
 
     let requestBody = {
       name : this.profileData.get('name')?.value,
