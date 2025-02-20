@@ -55,13 +55,22 @@ responseData: any;
   }
 
   updateProfile(responseData : any){
-    this.profileData.get('name')?.patchValue(responseData.name);
-    this.profileData.get('userName')?.patchValue(responseData.userName);
-    this.profileData.get('password')?.patchValue(responseData.password);
-    this.profileData.get('email')?.patchValue(responseData.email);
-    this.profileData.get('mobile')?.patchValue(responseData.mobile);
-    this.profileData.get('address')?.patchValue(responseData.address);
 
+    let requestBody = {
+      name : this.profileData.get('name')?.value,
+      userName : this.profileData.get('userName')?.value,
+      password : this.profileData.get('password')?.value,
+      email : this.profileData.get('email')?.value,
+      mobile : this.profileData.get('mobile')?.value,
+      address : this.profileData.get('address')?.value,
+    }
+
+    this.apiService.patchData(apiUrls.userApi, requestBody,this.sessionSer.getUserId()).subscribe(
+      ()=>{
+        alert("Profile updated Successfully...");
+      },
+      err => {console.log(err);}
+    );
 
   }
 
