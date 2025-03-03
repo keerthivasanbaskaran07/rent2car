@@ -15,7 +15,7 @@
 * {
     
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: var(--font-style);
    
 }
 
@@ -31,15 +31,23 @@
     align-items: center;
     column-gap: 2.5rem;
     color: #999999;
+    font-size: 15px;
+    font-family: var(--font-style);
 }
 
 .line2::before,
 .line2::after {
     content: "";
-    height: 2px;
+    height: 3px;
     background-color: black;
     display: block;
 
+}
+h1{
+    font-family: var(--font-style);
+}
+.para{
+    font-size: 15px;
 }
 
 /*btn*/
@@ -53,7 +61,7 @@
 
 .btn.btn-brand {
     background-color:var(--c-brand);
-    border-color: var#3cb9eb;
+    border-color: var(--c-brand);
     color: white;
     border-radius: 0;
     font-weight: 600;
@@ -64,7 +72,7 @@
 
 .btn.btn-brand:hover {
     background-color:#852bed;
-    border-color: #3cb9eb;
+    border-color: var(--c-brand);
     color: black;
     transform: translateY(20%);
 }

@@ -4,7 +4,7 @@
 /*variable*/
 :host{
     --c-dark: #081b29;
-    --c-brand: #00abf0;
+    --c-brand: #7000f0;
     --c-brand-light:#4ec0ed;
     --c-brand-rgb:19, 141, 117;
     --c-light-rgb: 0,0,0;
@@ -14,10 +14,81 @@
     --transition: all 0.5s ease;
 
 }
+// img{
+//     height: 120px;
+//     width: 150px;
+// }
 
+.img-i::after{
+    content:'';
+    height: 3px;
+    width: 100%;
+    background:var(--c-brand);
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.img-i:hover::after{
+    opacity: 1;
+   
+}
 #hero{
     font-family: var(--font-style);
     background: linear-gradient(rgba(var(--c-light-rgb), 0.507), rgba(var(--c-light-rgb), 0.438)),url('../../assets/images/chennai.jpg');
     background-position: center;
     background-size: cover;
+}
+
+.section-padding {
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+
+
+/* CONTACT */
+#info {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-style);
+}
+
+// #info::after {
+//     content: "";
+//     width: 100%;
+//     height: 70%;
+//     background: linear-gradient(rgba(var(--c-light-rgb), 0.5), rgba(var(--c-light-rgb), 0.5)), url(../../../src/assets/images/info-wall.jpg);
+//     background-position: center;
+//     background-size: cover;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     z-index: -1;
+// }
+
+#info .form-control {
+    border-radius: 0;
+}
+
+#info .form-control:focus {
+    box-shadow: none;
+    border-color: var(--c-brand);
+}
+.form-check-input{
+    background-color: var(--c-brand);
+}
+.btn.btn-brand {
+    background-color:#7000f0;
+    border-color: #7000f0;
+    color: white;
+    border-radius:0;
+    font-weight:600;
+    padding: 5px 30px;
+}
+.btn.btn-light{
+    border-radius: 0;
+    font-weight: 600;
 }

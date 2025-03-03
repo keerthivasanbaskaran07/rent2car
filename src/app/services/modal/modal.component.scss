@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Carrois+Gothic+SC&family=Megrim&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/*variable*/
+:host{
+    --c-dark: #081b29;
+    --c-brand: #7000f0;
+    --c-brand-light:#4ec0ed;
+    --c-brand-rgb:19, 141, 117;
+    --c-light-rgb: 0,0,0;
+    --c-body: #727272;
+    --font-style:"Poppins", serif;
+    --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    --transition: all 0.5s ease;
+
+}
+*{
+    transition: all .2s linear;
+}
+img{
+    height: 100px;
+    width: 120px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+.img-i::after{
+    content:'';
+    height: 3px;
+    width: 100%;
+    background:var(--c-brand);
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.img-i:hover::after{
+    opacity: 1;
+   
+}
+
+
+.section-padding {
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+
+
+/* CONTACT */
+#info {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-style);
+}
+
+// #info::after {
+//     content: "";
+//     width: 100%;
+//     height: 70%;
+//     background: linear-gradient(rgba(var(--c-light-rgb), 0.5), rgba(var(--c-light-rgb), 0.5)), url(../../../src/assets/images/info-wall.jpg);
+//     background-position: center;
+//     background-size: cover;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     z-index: -1;
+// }
+
+ .form-control {
+    border-radius: 0;
+    
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--c-brand);
+}
+.form-check-input{
+    background-color: var(--c-brand);
+}
+.btn.btn-brand {
+    background-color:#7000f0;
+    border-color: #7000f0;
+    color: #fff;
+    border-radius:0;
+    font-weight:600;
+    padding: 5px 30px;
+}
+.btn.btn-brand:hover {
+    background-color:#852bed;
+    border-color: var(--c-brand);
+    color: black;
+    transform: translateY(20%);
+}
+.btn.btn-light{
+    border-radius: 0;
+    font-weight: 600;
+}
+
+
+.div1 {
+    grid-row: span 2 / span 2;
+    height: 150px;
+    width: 150px;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    outline: .1rem solid #000;
+    outline-offset: -0.9rem;
+    border-radius: 0;
+    
+    
+    
+}
+/* TEAM */
+.team-member-content {
+    background-color:  #7000f0;
+    position: relative;
+    bottom: -5px;
+    left: 53%;
+    width: calc(100% - 30px);
+    height: calc(30% - 20px);
+    transform: translateX(-50%);
+    padding: 10px;
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.modal-image:hover .team-member-content {
+    opacity: 1;
+    bottom: 24px;
+}
+.modal-image .team-member-content h4{
+    padding-left: 10px;
+}
+
+
+.div1:hover{
+    outline: .2rem solid  #7000f0;
+   outline-offset: 0;
+}
+
+
+.div2 {
+    grid-row: span 2 / span 2;
+    height: 150px;
+    width: 150px;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    outline: .1rem solid #000;
+    outline-offset: -0.9rem;
+    border-radius: 0;
+    
+
+    
+}
+.div2:hover{
+    outline: .2rem solid  #7000f0;
+   outline-offset: 0;
+}
+
+.div3 {
+    grid-row: span 2 / span 2;
+    height: 150px;
+    width: 150px;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    outline: .1rem solid #000;
+    outline-offset: -0.9rem;
+    border-radius: 0;
+    
+}
+.div3:hover{
+    outline: .2rem solid  #7000f0;
+   outline-offset: 0;
+}
+.div4 {
+    grid-row: span 2 / span 2;
+    grid-row-start: 3;
+    height: 150px;
+    width: 150px;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    outline: .1rem solid #000;
+    outline-offset: -0.9rem;
+    border-radius: 0;
+    
+}
+.div4:hover{
+    outline: .2rem solid  #7000f0;
+   outline-offset: 0;
+}
+
+.div5 {
+    grid-row: span 2 / span 2;
+    grid-row-start: 3;
+    height: 150px;
+    width: 150px;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    outline: .1rem solid #000;
+    outline-offset: -0.9rem;
+    border-radius: 0;
+    
+}
+.div5:hover{
+    outline: .2rem solid  #7000f0;
+   outline-offset: 0;
+}
+
+.div6 {
+    grid-row: span 2 / span 2;
+    grid-row-start: 3;
+    height: 150px;
+    width: 150px;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
+    outline: .1rem solid #000;
+    outline-offset: -0.5rem;
+    border-radius: 0;
+    
+}
+.div6:hover{
+    outline: .2rem solid  #7000f0;
+   outline-offset: 0;
+}
+        

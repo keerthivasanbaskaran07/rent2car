@@ -1,7 +1,8 @@
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
 
   <section id="hero" class="min-vh-100 d-flex align-items-center text-start">
     <div class="container">
-        <div class="row">
+        <div class="row row-cols-2">
             <div class="col-12">
                 <h1 class="text-uppercase text-white fw-bold display-6" data-aos="fade-left">Rent a Car from Best Car Rental- Rent 2 Car</h1>
                 <h5  class=" text-white mt-3 mb-4" data-aos="fade-right">Rent2Caris one of the most trusted car rental services as Indus Motors, the top Maruti dealership in India, promotes it. The rent-a-car service provider offers an outstanding model and a wide variety of vehicle options at the most competitive rates. At IndusGo, we allow you to enjoy flexibility with respect to start and endpoints. You can book cars on an hourly, daily, weekly, monthly basis. Moreover, we provide door-step delivery, believe in complete transparency, and adhere strictly to business ethics.</h5>
@@ -13,4 +14,54 @@
             </div>
         </div>
     </div>
+
+    <div class="container " id="info">
+      <div class="row">
+        <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+          <div class="section-title">
+            <h1 class="display-4 text-white fw-bold">Find the right car now !</h1>
+            <div class="line bg-white"></div>
+            <p class=" text-white">We love to craft digital experiances for brands rather than crap and more lorem ipsums and do crazy skills</p>
+
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center" data-aos="fade-down" data-aos-delay="250">
+        <div class="col-lg-8">
+          <form action="#" class="row g-3 p-lg-5 p-4 bg-white theme-shadow">
+            <div class="form-floating col-lg-6  img-i">
+              <button type="button" class="btn btn" > 
+                <img src="./../../assets/images/pngwingcom_5.png" alt="" style="height: 100px; width: 120px;">
+              </button>
+            </div>
+            <div class="form-floating col-lg-6 img-i">
+              <button type="button" class="btn btn"> 
+              <img src="./../../assets/images/pngwing-com_s.png" alt="" style="height: 100px; width: 100px;">
+            </button>
+            </div>
+            <div class="form-check form-switch col-lg-12">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Return car to another location</label>
+            </div>
+            <div class="form-floating mb-3">
+              <app-modal [cssClass]="cssInpt" [cityInput]="true"></app-modal>
+            </div>
+            <div class="form-floating mb-3">
+              <app-modal [cssClass]="cssInpt" [datePickerInput]="true"></app-modal>
+            </div>
+            
+            <div class=" col-lg-12 ">
+              <app-modal [cssClass]="cssInpt" ></app-modal>
+            </div>
+            <div class="form-floating  col-lg-12 d-grid">
+                <!-- <button class="btn btn-brand">Send Message</button> -->
+                <app-modal class="col-lg-12 d-grid" [cssClass]="cssClass" [cndn]="true" ></app-modal>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
   </section>
+  <!--contact-->
+ 

@@ -11,6 +11,8 @@ import { CreateAccountComponent } from './Account/create-account/create-account.
 import { ViewAccountComponent } from './Account/view-account/view-account.component';
 import { ProfileComponent } from './User/profile/profile.component';
 import { ForgetPswdComponent } from './User/forget-pswd/forget-pswd.component';
+import { Component } from '@angular/core';
+import { DatepickerComponent } from './services/datepicker/datepicker.component';
 
 export const routes: Routes = [
     {path:'loginAcc', component:LoginComponent},
@@ -24,5 +26,7 @@ export const routes: Routes = [
     {path:'createAcc', component:CreateAccountComponent},
     {path:'viewAcc', component:ViewAccountComponent},
     {path:'profile', component:ProfileComponent},
-    {path:'forgetpswd', component:ForgetPswdComponent}
+    {path:'forgetpswd', component:ForgetPswdComponent},
+    {path: 'datapic', component:DatepickerComponent}
+    
 ];

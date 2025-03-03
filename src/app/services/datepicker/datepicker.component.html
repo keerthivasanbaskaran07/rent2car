@@ -1,0 +1,23 @@
+<p>Choose your pick-up date & time</p>
+
+<ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden" />
+
+<ng-template #t let-date let-focused="focused">
+	<span
+		class="custom-day"
+		[class.focused]="focused"
+		[class.range]="isRange(date)"
+		[class.faded]="isHovered(date) || isInside(date)"
+		(mouseenter)="hoveredDate = date"
+		(mouseleave)="hoveredDate = null"
+	>
+		{{ date.day }}
+	</span>
+</ng-template>
+
+<hr />
+
+<!-- <pre>From: {{ fromDate | json }} </pre>
+<span> {{ fromDate.year + "-" + fromDate.month + "-" + fromDate.day }} </span>
+<div> {{ dateText }} </div>
+<pre>To: {{ toDate | json }} </pre> -->

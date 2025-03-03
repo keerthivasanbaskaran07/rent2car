@@ -59,8 +59,8 @@
           <span id="lgiBtn"><a href="./login.html" class="btn btn-brand">Login</a></span>                 
           <span id="lgoBtn"><button class="btn btn-brand" type="button" onclick="logout()">Logout</button></span>
       </form> -->
-        <span id="lgiBtn"><button class="btn btn-brand ms-lg-3" type="button" (click)="gotoLoginPage()">Login</button></span>
-        <span id="lgoBtn"><button class="btn btn-brand ms-lg-3" type="button"  (click)="logOutPage()">Log Out</button></span>
+        <span id="lgiBtn" *ngIf="!isLoggedIn"><button class="btn btn-brand ms-lg-3" type="button" (click)="gotoLoginPage()">Login</button></span>
+        <span id="lgoBtn" *ngIf="isLoggedIn"><button class="btn btn-brand ms-lg-3" type="button"  (click)="logOutPage()">Log Out</button></span>
       </div>
     </div>
   </nav>

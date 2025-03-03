@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { OffersComponent } from './offers/offers.component';
-import { HomeComponent } from './home/home.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from "./footer/footer.component";

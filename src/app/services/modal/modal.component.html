@@ -1,0 +1,97 @@
+<ng-template #content1 let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Rent 2 Car</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<div class="contaner">
+			<div class="row">
+				<div class="col-md-4 modal-image">
+					<div class="div1">
+						<img class="Dimg" src="./../../../assets/images/cheen.png" alt="">
+					</div>
+					<div class="team-member-content">
+						<h4 class="text-white">Chennai</h4>
+					</div>
+
+				</div>
+				<div class="col-md-4 modal-image">
+					<div class="div2">
+						<img class="Dimg" src="./../../../assets/images/bangalore.png" alt="">
+					</div>
+					<div class="team-member-content">
+						<h4 class="text-white">Bangaluru</h4>
+					</div>
+				</div>
+				<div class="col-md-4 modal-image">
+					<div class="div3">
+						<img class="Dimg" src="./../../../assets/images/bang.png" alt="">
+					</div>
+					<div class="team-member-content">
+						<h4 class="text-white">hyderabad</h4>
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-between">
+				<div class="col-md-4 modal-image">
+					<div class="div4">
+						<img class="Dimg" src="./../../../assets/images/trivandram.png" alt="">
+					</div>
+					<div class="team-member-content">
+						<h4 class="text-white">Trivandram</h4>
+					</div>
+				</div>
+				<div class="col-md-4 modal-image">
+					<div class="div5">
+						<img class="Dimg" src="./../../../assets/images/cochin.png" alt="">
+					</div>
+					<div class="team-member-content">
+						<h4 class="text-white">Cochin</h4>
+					</div>
+				</div>
+				<div class="col-md-4 modal-image">
+					<div class="div6">
+						<img class="Dimg" src="./../../../assets/images/pondychery.png" alt="">
+					</div>
+					<div class="team-member-content">
+						<h4 class="text-white">Puducherry</h4>
+					</div>
+				</div>
+			</div>		
+		</div>
+		 
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-brand" (click)="c('Save click')">Save</button>
+	</div>
+</ng-template>
+
+<ng-template #content2 let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Rent 2 Car</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<div class="contaner">
+			<ngbd-datepicker-range-popup></ngbd-datepicker-range-popup>
+		</div>
+		 
+	</div>
+</ng-template>
+
+<ng-container *ngIf="!cndn && cityInput">
+	<input class="form-control form-control-lg px-3 mb-3" type="text" placeholder="Drop Off Location"
+		aria-label=".form-control-lg example" [class]="cssInpt" (click)="open(content1)">
+</ng-container>
+<ng-container *ngIf="!cndn && datePickerInput">
+	<input class="form-control form-control-lg px-3 mb-3" type="text" placeholder="Drop Off Location"
+		aria-label=".form-control-lg example" [class]="cssInpt" (click)="open(content2)">
+</ng-container>
+<ng-container *ngIf="cndn">
+	<button [class]="cssClass" (click)="open(content1)">Send Message</button>
+</ng-container>
+
+<!-- <div class="form-floating mb-3">
+	<input type="text" class="form-control" id="text" placeholder="Drop Off Location" [class]="cssClass" (click)="open(content)">
+	<label for="floatingInput"> pick up location</label>
+  </div> -->
