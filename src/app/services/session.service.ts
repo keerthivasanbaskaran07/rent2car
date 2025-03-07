@@ -8,6 +8,8 @@ export class SessionService {
 
   constructor(private router: Router) { }
 
+  public isUserLoggedIn : boolean = false;
+
   setUserSession(user:any){
     sessionStorage.setItem('UserId', user.id);
     sessionStorage.setItem('UserName', user.userName);            
@@ -26,6 +28,10 @@ export class SessionService {
   getUserId(){
     return sessionStorage.getItem('UserId') || '';
   }
+  getLocationId(){
+    return sessionStorage.getItem('locationId') || '';
+  }
+
 
   isSessionAvailable(){
     let userId = sessionStorage.getItem('UserId') || '';
@@ -34,7 +40,12 @@ export class SessionService {
     return true;
   }
 
+  setLocationSession(lId :any){
+     sessionStorage.setItem('locationId', lId);
+  }
+
   logoutSession(){
+    this.isUserLoggedIn = false;
     sessionStorage.removeItem('UserId');
     sessionStorage.removeItem('UserName');
     sessionStorage.removeItem('UserType');

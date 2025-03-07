@@ -7,6 +7,7 @@ import { OffersComponent } from '../offers/offers.component';
 import { SubscriptionComponent } from '../subscription/subscription.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../services/modal/modal.component';
+import { SessionService } from '../services/session.service';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,14 @@ export class HomeComponent {
   cssClass : string= 'btn btn-brand';
   cssInpt : string = 'form-control';
   btnCdn : boolean = false;
+
+  constructor(private router: Router,   private sessioService : SessionService){}
+
+
+  gotoDetailsLocatoin(){
+    this.sessioService.setLocationSession([]);
+    this.router.navigate(['/locationDts']);
+  }
   
 
 }

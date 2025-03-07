@@ -14,9 +14,8 @@ import { SessionService } from '../services/session.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router:Router, private sessionService: SessionService){}
+  constructor(private router:Router, public sessionService: SessionService){}
   ngOnInit(): void {
-    this.checkSesion();
   }
   isLoggedIn: boolean = false;
 
@@ -33,18 +32,6 @@ export class HeaderComponent implements OnInit {
     alert('account successfully logout')
   }
 
-  checkSesion(){
-    
-    if(this.sessionService.isSessionAvailable()){
-      this.isLoggedIn = true;
-    }
-    else{
-      this.isLoggedIn = false; 
-
-    }
-    
-    
-  }
 
 
 }

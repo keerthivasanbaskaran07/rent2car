@@ -25,8 +25,8 @@ export class ProfileComponent implements OnInit{
   );
 
 
-  constructor(private apiService: ApiService, private sessionSer:SessionService){
-    this.sessionSer.validateUserSession();
+  constructor(private apiService: ApiService, private sessionService:SessionService){
+    this.sessionService.validateUserSession();
   }
 
   ngOnInit(): void {
@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit{
 
   getProfileData(){
 
-    this.apiService.getData(apiUrls.userApi+"/"+this.sessionSer.getUserId()).subscribe(
+    this.apiService.getData(apiUrls.userApi+"/"+this.sessionService.getUserId()).subscribe(
       (responseData : any) => {
         this.setProfileData(responseData);
       },
@@ -65,7 +65,7 @@ export class ProfileComponent implements OnInit{
       address : this.profileData.get('address')?.value,
     }
 
-    this.apiService.patchData(apiUrls.userApi, requestBody,this.sessionSer.getUserId()).subscribe(
+    this.apiService.patchData(apiUrls.userApi, requestBody,this.sessionService.getUserId()).subscribe(
       ()=>{
         alert("Profile updated Successfully...");
       },

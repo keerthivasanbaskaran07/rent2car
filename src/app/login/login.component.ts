@@ -67,6 +67,7 @@ export class LoginComponent {
           (responseData:any) => {
             console.log(responseData);
             if(responseData.length > 0){
+              this.sessionservice.isUserLoggedIn = true;
               this.sessionservice.setUserSession(responseData[0]);
               // sessionStorage.setItem('UserId', responseData[0].id);
               // sessionStorage.setItem('UserName', responseData[0].userName);            
