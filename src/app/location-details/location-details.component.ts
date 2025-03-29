@@ -3,11 +3,12 @@ import { SessionService } from '../services/session.service';
 import { ApiService } from '../services/api.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { apiUrls } from '../constants/globalContants';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-location-details',
   standalone: true,
-  imports: [LocationDetailsComponent , ReactiveFormsModule],
+  imports: [ReactiveFormsModule , CommonModule],
   templateUrl: './location-details.component.html',
   styleUrl: './location-details.component.scss'
 })
@@ -15,6 +16,8 @@ export class LocationDetailsComponent implements OnInit {
 
   LocationData : FormGroup = new FormGroup(
       {
+        lName : new FormControl(''),
+        ImgLocation : new FormControl(''),
         locationName1 : new FormControl(''),
         locationName2 : new FormControl(''),
         locationName3 : new FormControl(''),
@@ -23,7 +26,14 @@ export class LocationDetailsComponent implements OnInit {
         
       }
     );
-
+ LocationDetails:any;
+  lName:any;
+  ImgLocation:any;
+  locationName1:any;
+  locationName2:any;
+  locationName3:any;
+  locationName4:any;
+  locationName5:any;
   constructor(private apiService: ApiService, private sessionService:SessionService){
       // this.sessionService.validateUserSession();
     }
@@ -34,8 +44,8 @@ export class LocationDetailsComponent implements OnInit {
     getLocationData(){
       this.apiService.getData(apiUrls.LocationApi+"?lId="+this.sessionService.getLocationId()).subscribe(
         (responseData : any) => {
-          this.setLocationData(responseData[0]);
-           
+           this.setLocationData(responseData[0]);
+           this.LocationDetails=responseData;
         },
         err =>{console.log(err)}
       )
@@ -43,6 +53,8 @@ export class LocationDetailsComponent implements OnInit {
     }
 
     setLocationData(responseData : any){
+      this.LocationData.get('lName')?.setValue(responseData.lName);
+      this.LocationData.get('ImgLocation')?.setValue(responseData.ImgLocation);
       this.LocationData.get('locationName1')?.setValue(responseData.locationName1);
       this.LocationData.get('locationName2')?.setValue(responseData.locationName2);
       this.LocationData.get('locationName3')?.setValue(responseData.locationName3);
@@ -52,3 +64,5 @@ export class LocationDetailsComponent implements OnInit {
   
 
 }
+
+

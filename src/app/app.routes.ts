@@ -14,6 +14,7 @@ import { ForgetPswdComponent } from './User/forget-pswd/forget-pswd.component';
 import { Component } from '@angular/core';
 import { DatepickerComponent } from './services/datepicker/datepicker.component';
 import { LocationDetailsComponent } from './location-details/location-details.component';
+import { CarsDetailsComponent } from './cars-details/cars-details.component';
 
 export const routes: Routes = [
     {path:'loginAcc', component:LoginComponent},
@@ -29,6 +30,7 @@ export const routes: Routes = [
     {path:'profile', component:ProfileComponent},
     {path:'forgetpswd', component:ForgetPswdComponent},
     {path: 'datapic', component:DatepickerComponent},
-    {path: 'locationDts', component:LocationDetailsComponent}
+    {path: 'locationDts', component:LocationDetailsComponent},
+    {path: 'carsDts', component:CarsDetailsComponent}
     
 ];

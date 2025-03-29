@@ -53,4 +53,4 @@ export class SessionService {
       this.router.navigate(['loginAcc']);
     }, 3000);
   }
-}
+} 

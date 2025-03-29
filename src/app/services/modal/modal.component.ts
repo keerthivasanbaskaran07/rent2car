@@ -38,7 +38,7 @@ export class ModalComponent {
 	// open2(content2:any) {
 	// 	this.modalService.open(content2);
 	// }
-	gotoDetailsLocatoin(lId: any){
+	gotoDetailsLocation(lId: any){
 		this.modalService.dismissAll('Dismiss');
 		this.sessioService.setLocationSession(lId);
 		this.router.navigate(['/locationDts']);
