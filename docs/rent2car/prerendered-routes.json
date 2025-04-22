@@ -1,0 +1,24 @@
+{
+  "routes": [
+    "/",
+    "/accAdmin",
+    "/accOffers",
+    "/accSubscription",
+    "/carDts",
+    "/closeAcc",
+    "/contact",
+    "/createAcc",
+    "/customers",
+    "/datapic",
+    "/forgetpswd",
+    "/help",
+    "/locationDts",
+    "/locations",
+    "/loginAcc",
+    "/logout",
+    "/profile",
+    "/register",
+    "/review",
+    "/viewAcc"
+  ]
+}
