@@ -19,11 +19,17 @@
     font-size: 18px;
     
 }
+.main{
+    
+    background-image: linear-gradient(to right,  #081b29 0%, #081b29 50%,#081b29 50%, #7000f0 70%, #7000f0 100%);
+
+}
 /*navbar*/
 .navbar {
     box-shadow: var(--box-shadow);
     font-family: var(--font-style);
     color: #ffffff;
+    margin-bottom: 0;
 }
 
 .navbar-nav .nav-link {
@@ -96,6 +102,8 @@
     border-radius: 2%;
     margin-bottom: 10px;
     box-shadow: 1px 5px 5px #7000f0;
+    background-color: white;
+    margin-left: 10px;
 }
 #car{
     width: 100%;

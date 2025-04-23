@@ -15,6 +15,11 @@ import { Component } from '@angular/core';
 import { DatepickerComponent } from './services/datepicker/datepicker.component';
 import { LocationDetailsComponent } from './location-details/location-details.component';
 import { CarsDetailsComponent } from './cars-details/cars-details.component';
+import { LocationsComponent } from './more/locations/locations.component';
+import { CustomersComponent } from './more/customers/customers.component';
+import { ReviewComponent } from './more/review/review.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { HelpComponent } from './more/help/help.component';
 
 export const routes: Routes = [
     {path:'loginAcc', component:LoginComponent},
@@ -31,6 +36,14 @@ export const routes: Routes = [
     {path:'forgetpswd', component:ForgetPswdComponent},
     {path: 'datapic', component:DatepickerComponent},
     {path: 'locationDts', component:LocationDetailsComponent},
-    {path: 'carsDts', component:CarsDetailsComponent}
+    {path: 'carDts', component:CarsDetailsComponent},
+    {path: 'locations', component:LocationsComponent},
+    {path: 'customers', component:CustomersComponent},
+    {path: 'review', component:ReviewComponent},
+    {path: 'contact', component:ContactUsComponent},
+    {path: 'help', component:HelpComponent}
+    
+    
+
     
 ];

@@ -44,6 +44,14 @@ export class SessionService {
      sessionStorage.setItem('locationId', lId);
   }
 
+  SetCarsSession(cId :any){
+    sessionStorage.setItem('carsId' , cId);
+  }
+
+  getCarsId(){
+    return sessionStorage.getItem('carsId') || '';
+  }
+
   logoutSession(){
     this.isUserLoggedIn = false;
     sessionStorage.removeItem('UserId');

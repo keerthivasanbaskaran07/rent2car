@@ -25,30 +25,33 @@
     </div>
   </nav>
 
-  <div class="container-fluid">
-    <div class="row mt-5">
-      <div class="col-4">
+  <div class="container-fluid main">
+    <div class="row ">
+      <div class="col-4 mt-4" *ngFor="let carData of carsDetailsData" >
         <div class="row" id="info">
-          <span class="py-4"><i class="ri-map-pin-line "></i> Pick up Information</span>
+          <span class="py-4 text-success fs-4"><i class="ri-map-pin-line "></i> Pick Up Information</span>
+          <span class="ms-4 text-danger fs-4">{{carData.pickUpInfo1}}</span>
           
         </div>
         <div class="row" id="info">
-          <span class="py-4"> <i class="ri-map-pin-line"></i> Drop Off Information</span>
+          <span class="py-4 text-success fs-4"> <i class="ri-map-pin-line"></i> Drop Off Information</span>
+          <span class="ms-4 text-danger fs-5">{{carData.dropOffInfo}}</span>
           
         </div>
+      
       </div>
-      <div class="col-8">
-        <div ngbScrollSpy #spy="ngbScrollSpy" class="bg-light p-3 rounded-2 mb-3" style="height: 500px" >
+      <div class="col-8  mt-4" *ngFor="let carDataOne of carsDetailsData">
+        <div ngbScrollSpy #spy="ngbScrollSpy" class="bg-light p-3 rounded-2 mb-3" style="height: 500px"  >
           <div class="row mb-4" id="car">
             <div class="col">
               <img id="carImg" class="mt-2" src="./../../assets/images/dzire-2024.webp" alt="">
             </div>
             <div class="col-6 mt-3" >
-              <h1> Maruti Suzuki Dezire</h1>
-              <p>5 seater,Manual,Diesel</p>
+              <h1>{{carDataOne.carName1}}</h1>
+              <p>{{carDataOne.carType1}}</p>
             </div>
             <div class="col mt-3">
-              <h1>₹</h1>
+             <h1 class="text-danger">₹{{carDataOne.carRprice}}</h1>
               <P>For 149 WithOut Fuel</P>
               <button class="btn btn-brand ms-lg-3" type="button" >Book now</button>
             </div>
@@ -58,11 +61,11 @@
               <img id="carImg" class="mt-2" src="./../../assets/images/new-swift.png" alt="">
             </div>
             <div class="col-6 mt-3" >
-              <h1> Maruti Suzuki Dezire</h1>
-              <p>5 seater,Manual,Diesel</p>
+              <h1>{{carDataOne.carName2}}</h1>
+              <p>{{carDataOne.carType2}}</p>
             </div>
             <div class="col mt-3">
-              <h1>₹</h1>
+             <h1 class="text-danger">₹{{carDataOne.carRprice}}</h1>
               <P>For 149 WithOut Fuel</P>
               <button class="btn btn-brand ms-lg-3" type="button" >Book now</button>
             </div>
@@ -72,11 +75,11 @@
               <img id="carImg" class="mt-2" src="./../../assets/images/tiago.webp" alt="">
             </div>
             <div class="col-6 mt-3" >
-              <h1> Maruti Suzuki Dezire</h1>
-              <p>5 seater,Manual,Diesel</p>
+              <h1>{{carDataOne.carName3}}</h1>
+              <p>{{carDataOne.carType3}}</p>
             </div>
             <div class="col mt-3">
-              <h1>₹</h1>
+              <h1 class="text-danger">₹{{carDataOne.carRprice}}</h1>
               <P>For 149 WithOut Fuel</P>
               <button class="btn btn-brand ms-lg-3" type="button" >Book now</button>
             </div>
@@ -86,11 +89,11 @@
               <img id="carImg" class="mt-2" src="./../../assets/images/vitara-car.webp" alt="">
             </div>
             <div class="col-6 mt-3" >
-              <h1> Maruti Suzuki Dezire</h1>
-              <p>5 seater,Manual,Diesel</p>
+              <h1>{{carDataOne.carName4}}</h1>
+              <p>{{carDataOne.carType4}}</p>
             </div>
             <div class="col mt-3">
-              <h1>₹</h1>
+             <h1 class="text-danger">₹{{carDataOne.carRprice}}</h1>
               <P>For 149 WithOut Fuel</P>
               <button class="btn btn-brand ms-lg-3" type="button" >Book now</button>
             </div>
@@ -100,11 +103,11 @@
               <img id="carImg" class="mt-2" src="./../../assets/images/xuv-3xo.webp" alt="">
             </div>
             <div class="col-6 mt-3" >
-              <h1> Maruti Suzuki Dezire</h1>
-              <p>5 seater,Manual,Diesel</p>
+              <h1>{{carDataOne.carName5}}</h1>
+              <p>{{carDataOne.carType5}}</p>
             </div>
             <div class="col mt-3">
-              <h1>₹</h1>
+             <h1 class="text-danger">₹{{carDataOne.carRprice}}</h1>
               <P>For 149 WithOut Fuel</P>
               <button class="btn btn-brand ms-lg-3" type="button" >Book now</button>
             </div>
@@ -114,11 +117,11 @@
               <img id="carImg" class="mt-2" src="./../../assets/images/toyota-urban-cruiser.webp" alt="">
             </div>
             <div class="col-6 mt-3" >
-              <h1> Maruti Suzuki Dezire</h1>
-              <p>5 seater,Manual,Diesel</p>
+              <h1>{{carDataOne.carName6}}</h1>
+              <p>{{carDataOne.carType6}}</p>
             </div>
             <div class="col mt-3">
-              <h1>₹</h1>
+             <h1 class="text-danger">₹{{carDataOne.carRprice}}</h1>
               <P>For 149 WithOut Fuel</P>
               <button class="btn btn-brand ms-lg-3" type="button" >Book now</button>
             </div>

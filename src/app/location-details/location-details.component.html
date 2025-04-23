@@ -1,9 +1,9 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 
-    <div class="container-fluid " >
+    <div class="container-fluid "  *ngFor="let location of LocationDetails">
         <div class="row row-cols-2">
-            <div class="col-6 col-md-6" *ngFor="let location of LocationDetails">
+            <div class="col-6 col-md-6" >
                 <section class="home">
                     <div class="home-content image-zoom">
                         <div>
@@ -19,46 +19,44 @@
 
 
 
-            <div class="col-6 col-md-6" [formGroup]="LocationData">
+            <div class="col-6 col-md-6" >
                 <section id="sign">
                     <div class="col-lg-12" data-aos="fade-up-right" data-aos-delay="300" data-aos-duration="1000">
-                        <form action="#" class="row g-3 p-lg-5 p-4  theme-shadow" id="form" >
+                        <form action="#" class="row g-3 p-lg-5 p-4  theme-shadow" id="form" [formGroup]="LocationData">
+                            <!-- <div>
+                                <div class="input-group mb-4">
+
+                                    <input type="text" class="form-control px-3 text-uppercase fs-5 " aria-label="Sizing example input" id="locName1" [value]="LocationDetails[0].locationName1"
+                                        aria-describedby="inputGroup-sizing-default" [(ngModel)]="loc1" readonly (click)="goToCarDetails(location.id)" >
+                                </div>
+                            </div> -->
 
                             <div class="input-group mb-4">
 
                                 <input type="text" class="form-control px-3 text-uppercase fs-5 " aria-label="Sizing example input" id="locationName1"
-                                    aria-describedby="inputGroup-sizing-default" formControlName="locationName1" readonly >
+                                    aria-describedby="inputGroup-sizing-default" formControlName="locationName1" readonly (click)="goToCarDetails(location.id)" >
                             </div>
                             <div class="input-group mb-4">
 
                                 <input type="text" class="form-control px-3 text-uppercase fs-5" aria-label="Sizing example input" id="locationName2"
-                                    aria-describedby="inputGroup-sizing-default" formControlName="locationName2" readonly>
+                                    aria-describedby="inputGroup-sizing-default" formControlName="locationName2" readonly (click)="goToCarDetails(location.id)">
                             </div>
                             <div class="input-group mb-4">
 
                                 <input type="text" class="form-control px-3 text-uppercase fs-5" aria-label="Sizing example input" id="locationName3"
-                                    aria-describedby="inputGroup-sizing-default" formControlName="locationName3" readonly>
+                                    aria-describedby="inputGroup-sizing-default" formControlName="locationName3" readonly (click)="goToCarDetails(location.id)">
                             </div>
                             <div class="input-group mb-4">
 
                                 <input type="text" class="form-control px-3 text-uppercase fs-5" aria-label="Sizing example input" id="locationName4"
-                                    aria-describedby="inputGroup-sizing-default" formControlName="locationName4" readonly>
+                                    aria-describedby="inputGroup-sizing-default" formControlName="locationName4" readonly (click)="goToCarDetails(location.id)">
                             </div>
                             <div class="input-group mb-4">
 
                                 <input type="text" class="form-control px-3 text-uppercase fs-5" aria-label="Sizing example input" id="locationName5"
-                                    aria-describedby="inputGroup-sizing-default" formControlName="locationName5" readonly>
+                                    aria-describedby="inputGroup-sizing-default" formControlName="locationName5" readonly (click)="goToCarDetails(location.id)"> 
                             </div>
-                            <div class="input-group mb-4">
-
-                                <input type="text" class="form-control px-3 text-uppercase fs-4" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
-                            </div>
-                            <div class="input-group mb-4">
-
-                                <input type="text" class="form-control px-3 text-uppercase fs-4" aria-label="Sizing example input"
-                                    aria-describedby="inputGroup-sizing-default">
-                            </div>
+                            
 
 
                         </form>

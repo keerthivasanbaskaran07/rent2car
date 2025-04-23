@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../services/session.service';
 import { ApiService } from '../services/api.service';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { apiUrls } from '../constants/globalContants';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-location-details',
   standalone: true,
-  imports: [ReactiveFormsModule , CommonModule],
+  imports: [ReactiveFormsModule , CommonModule, FormsModule],
   templateUrl: './location-details.component.html',
   styleUrl: './location-details.component.scss'
 })
 export class LocationDetailsComponent implements OnInit {
 
+  // loc1:string="";
+  // loc2:string="";
   LocationData : FormGroup = new FormGroup(
       {
         lName : new FormControl(''),
@@ -34,7 +37,8 @@ export class LocationDetailsComponent implements OnInit {
   locationName3:any;
   locationName4:any;
   locationName5:any;
-  constructor(private apiService: ApiService, private sessionService:SessionService){
+location: any;
+  constructor(private apiService: ApiService, private sessionService:SessionService,private router: Router ){
       // this.sessionService.validateUserSession();
     }
   ngOnInit(): void {
@@ -61,6 +65,10 @@ export class LocationDetailsComponent implements OnInit {
       this.LocationData.get('locationName4')?.setValue(responseData.locationName4);
       this.LocationData.get('locationName5')?.setValue(responseData.locationName5);
     }
+    goToCarDetails(CId:string){
+      this.sessionService.SetCarsSession(CId);
+      this.router.navigate(['/carDts']);
+	  }
   
 
 }

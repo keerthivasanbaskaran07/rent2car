@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Carrois+Gothic+SC&family=Megrim&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/*variable*/
+:host{
+    --c-dark: #ffffff;
+    --c-brand: #7000f0;
+    --c-brand-light:#7000f0;
+    --c-brand-rgb:112, 0, 240;
+    --c-light-rgb: 0,0,0;
+    --c-body: #727272;
+    --font-style:"Poppins", serif;
+    --box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.342);
+    --transition: all 0.5s ease;
+
+}
+*{
+    font-family: var(--font-style);
+    font-size: 18px;
+    
+}
+.section-padding {
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+
+/* CONTACT */
+#contact {
+    position: relative;
+    z-index: 2;
+}
+
+#contact::after {
+    content: "";
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(rgba(var(--c-brand-rgb), 0.8), rgba(var(--c-brand-rgb), 0.8)), url(../../assets/images/chennai.jpg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#contact .form-control {
+    border-radius: 0;
+}
+
+#contact .form-control:focus {
+    box-shadow: none;
+    border-color: var(--c-brand);
+}
+.btn.btn-brand {
+    background-color:var(--c-brand);
+    border-color: var(--c-brand);
+    color: white;
+    border-radius: 0;
+    font-weight: 600;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.btn.btn-brand:hover {
+    background-color:#852bed;
+    border-color: var(--c-brand);
+    color: black;
+    transform: translateY(20%);
+}
