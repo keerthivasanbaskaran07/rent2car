@@ -20,6 +20,13 @@ export class CarsDetailsComponent implements OnInit {
 constructor(private apiService: ApiService, private sessionService:SessionService,private router: Router ){
   
 }
+
+gotoHome(){
+    
+  this.router.navigate(['/']);
+  
+  
+}
   ngOnInit(): void {
     this.getLocationData();
   }

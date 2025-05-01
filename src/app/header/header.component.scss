@@ -53,6 +53,18 @@
 .profile:hover{
     color:#7000f0 !important ;
 }
+
+/* Smooth collapse transition */
+
+.collapse {
+    transition: height 0.35s ease;
+  }
+  
+  .collapse.show {
+    display: block;
+  }
+  
+  
 /*btn*/
 
 .btn {

@@ -1,14 +1,23 @@
 
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet"/>
+
+
 <nav class="navbar navbar-expand-lg bg-dark sticky-top">
     <div class="container-fluid">
       <a class="navbar-brand fw-bold" href="#" style="color: #7000f0;">Rent2Car</a>
-      <span> <a class="nav-link profile"[routerLink]="['profile']"><i class="ri-contacts-fill pe-2"></i>Profile</a></span>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    
+      <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed">
+        <i class="ri-menu-line"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+
+      <div class="collapse navbar-collapse" [ngClass]="{'show': !isNavbarCollapsed}" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['profile']">
+              <i class="ri-contacts-fill pe-2"></i>Profile
+            </a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/']">Home</a>
           </li>
@@ -56,8 +65,61 @@
           <span id="lgiBtn"><a href="./login.html" class="btn btn-brand">Login</a></span>                 
           <span id="lgoBtn"><button class="btn btn-brand" type="button" onclick="logout()">Logout</button></span>
       </form> -->
-        <span id="lgiBtn" *ngIf="!sessionService.isUserLoggedIn"><button class="btn btn-brand ms-lg-3" type="button" (click)="gotoLoginPage()">Login</button></span>
-        <span id="lgoBtn" *ngIf="sessionService.isUserLoggedIn"><button class="btn btn-brand ms-lg-3" type="button"  (click)="logOutPage()">Log Out</button></span>
+        <span id="lgiBtn" *ngIf="!sessionService.isUserLoggedIn">
+          <button class="btn btn-brand ms-lg-3" type="button" (click)="gotoLoginPage()">Login</button>
+        </span>
+
+        <span id="lgoBtn" *ngIf="sessionService.isUserLoggedIn">
+          <button class="btn btn-brand ms-lg-3" type="button"  (click)="logOutPage()">Log Out</button>
+        </span>
+        
       </div>
     </div>
   </nav>
+
+  <!-- <section data-bs-spy="scroll" data-bs-target=".navbar">
+
+    NAVBAR
+    <nav class="navbar navbar-expand-lg bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/images/logo-dark.svg" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">Blog</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-brand ms-lg-3">Download</a>
+            </div>
+        </div>
+    </nav>
+    
+  </section> -->
+
