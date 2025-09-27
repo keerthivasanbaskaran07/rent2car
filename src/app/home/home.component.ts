@@ -12,7 +12,7 @@ import { SessionService } from '../services/session.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, NgbDropdownModule, ModalComponent, LoginComponent],
+  imports: [CommonModule, FormsModule, RouterModule, NgbDropdownModule, ModalComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
