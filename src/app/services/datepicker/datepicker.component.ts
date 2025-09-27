@@ -6,7 +6,7 @@ import { NgbCalendar, NgbDate, NgbDateParserFormatter, NgbDatepickerModule } fro
 @Component({
   selector: 'ngbd-datepicker-range-popup',
   standalone: true,
-  imports: [NgbDatepickerModule, FormsModule, JsonPipe],
+  imports: [NgbDatepickerModule, FormsModule],
   templateUrl: './datepicker.component.html',
   styleUrl: './datepicker.component.scss'
   

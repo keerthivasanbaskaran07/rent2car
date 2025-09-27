@@ -1,43 +1,40 @@
+import 'zone.js/node';
 import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine } from '@angular/ssr';
+import { ngExpressEngine } from '@nguniversal/express-engine';
 import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
-import bootstrap from './src/main.server';
+import { AppServerModule } from './src/main.server';
 
-// The Express app is exported so that it can be used by serverless Functions.
+// Get __dirname in ES Module context
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 export function app(): express.Express {
   const server = express();
-  const serverDistFolder = dirname(fileURLToPath(import.meta.url));
+  const serverDistFolder = __dirname;
   const browserDistFolder = resolve(serverDistFolder, '../browser');
-  const indexHtml = join(serverDistFolder, 'index.server.html');
+  const indexHtml = join(browserDistFolder, 'index.html'); // browser index
 
-  const commonEngine = new CommonEngine();
+  // Configure Angular Express Engine
+  server.engine(
+    'html',
+    ngExpressEngine({
+      bootstrap: AppServerModule,
+    }) as any
+  );
 
   server.set('view engine', 'html');
   server.set('views', browserDistFolder);
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
-  // Serve static files from /browser
+  // Serve static files
   server.get('*.*', express.static(browserDistFolder, {
     maxAge: '1y'
   }));
 
-  // All regular routes use the Angular engine
-  server.get('*', (req, res, next) => {
-    const { protocol, originalUrl, baseUrl, headers } = req;
-
-    commonEngine
-      .render({
-        bootstrap,
-        documentFilePath: indexHtml,
-        url: `${protocol}://${headers.host}${originalUrl}`,
-        publicPath: browserDistFolder,
-        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
-      })
-      .then((html) => res.send(html))
-      .catch((err) => next(err));
+  // All other routes handled by Angular
+  server.get('*', (req, res) => {
+    res.render('index', { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 
   return server;
@@ -46,7 +43,6 @@ export function app(): express.Express {
 function run(): void {
   const port = process.env['PORT'] || 4000;
 
-  // Start up the Node server
   const server = app();
   server.listen(port, () => {
     console.log(`Node Express server listening on http://localhost:${port}`);
