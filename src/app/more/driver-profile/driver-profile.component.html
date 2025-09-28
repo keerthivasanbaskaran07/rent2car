@@ -1,1 +1,195 @@
-<p>driver-profile works!</p>
+<div class="profile-container">
+  <!-- Header Section -->
+  <header class="profile-header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="logo">Rent2Car</h1>
+        <nav class="profile-nav">
+          <a href="#" class="nav-link active">Profile</a>
+          <a href="#" class="nav-link">Subscriptions</a>
+          <a href="#" class="nav-link">History</a>
+          <a href="#" class="nav-link">Support</a>
+        </nav>
+        <div class="user-menu">
+          <img [src]="driverProfile.avatar" alt="Profile" class="avatar">
+          <span class="user-name">{{ driverProfile.firstName }} {{ driverProfile.lastName }}</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container main-content">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-md-4">
+        <div class="profile-sidebar">
+          <div class="profile-card text-center">
+            <img [src]="driverProfile.avatar" alt="Driver Photo" class="profile-avatar">
+            <h2 class="profile-name">{{ driverProfile.firstName }} {{ driverProfile.lastName }}</h2>
+            <p class="profile-role">{{ driverProfile.role }}</p>
+            <div class="rating">
+              <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
+              <span class="rating-text">({{ driverProfile.rating }})</span>
+            </div>
+            <div class="profile-stats">
+              <div class="stat-item">
+                <div class="stat-number">{{ driverProfile.totalTrips }}</div>
+                <div class="stat-label">Total Trips</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">{{ driverProfile.memberSince }}</div>
+                <div class="stat-label">Member Since</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quick-actions">
+            <h3>Quick Actions</h3>
+            <button class="action-btn" (click)="updateProfile()">
+              <i class="fas fa-edit"></i>
+              Edit Profile
+            </button>
+            <button class="action-btn" (click)="viewDocuments()">
+              <i class="fas fa-file-alt"></i>
+              My Documents
+            </button>
+            <button class="action-btn" (click)="contactSupport()">
+              <i class="fas fa-headset"></i>
+              Contact Support
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-md-8">
+        <div class="profile-content">
+          <!-- Personal Information -->
+          <div class="info-section">
+            <h3 class="section-title">
+              <i class="fas fa-user"></i>
+              Personal Information
+            </h3>
+            <div class="info-grid">
+              <div class="info-item">
+                <label>First Name</label>
+                <p>{{ driverProfile.firstName }}</p>
+              </div>
+              <div class="info-item">
+                <label>Last Name</label>
+                <p>{{ driverProfile.lastName }}</p>
+              </div>
+              <div class="info-item">
+                <label>Email</label>
+                <p>{{ driverProfile.email }}</p>
+              </div>
+              <div class="info-item">
+                <label>Phone</label>
+                <p>{{ driverProfile.phone }}</p>
+              </div>
+              <div class="info-item">
+                <label>Date of Birth</label>
+                <p>{{ driverProfile.dateOfBirth }}</p>
+              </div>
+              <div class="info-item">
+                <label>Driver License</label>
+                <p>{{ driverProfile.driverLicense }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Current Subscription -->
+          <div class="info-section">
+            <h3 class="section-title">
+              <i class="fas fa-car"></i>
+              Current Subscription
+            </h3>
+            <div class="subscription-card" [class]="driverProfile.currentSubscription.plan.toLowerCase()">
+              <div class="subscription-header">
+                <h4>{{ driverProfile.currentSubscription.plan }} Plan</h4>
+                <span class="status-badge" [class]="driverProfile.currentSubscription.status">
+                  {{ driverProfile.currentSubscription.status }}
+                </span>
+              </div>
+              <div class="subscription-details">
+                <div class="detail-item">
+                  <span class="label">Current Vehicle:</span>
+                  <span class="value">{{ driverProfile.currentSubscription.currentVehicle }}</span>
+                </div>
+                <div class="detail-item">
+                  <span class="label">Monthly Price:</span>
+                  <span class="value">${{ driverProfile.currentSubscription.monthlyPrice }}</span>
+                </div>
+                <div class="detail-item">
+                  <span class="label">Next Billing:</span>
+                  <span class="value">{{ driverProfile.currentSubscription.nextBillingDate }}</span>
+                </div>
+                <div class="detail-item">
+                  <span class="label">Miles Used:</span>
+                  <span class="value">{{ driverProfile.currentSubscription.milesUsed }}/{{ driverProfile.currentSubscription.milesAllowed }} miles</span>
+                </div>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="(driverProfile.currentSubscription.milesUsed / driverProfile.currentSubscription.milesAllowed) * 100"></div>
+              </div>
+              <div class="subscription-actions">
+                <button class="btn btn-primary" (click)="changeVehicle()">Change Vehicle</button>
+                <button class="btn btn-secondary" (click)="upgradePlan()">Upgrade Plan</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="info-section">
+            <h3 class="section-title">
+              <i class="fas fa-history"></i>
+              Recent Activity
+            </h3>
+            <div class="activity-list">
+              <div class="activity-item" *ngFor="let activity of recentActivities">
+                <div class="activity-icon">
+                  <i [class]="activity.icon"></i>
+                </div>
+                <div class="activity-content">
+                  <div class="activity-title">{{ activity.title }}</div>
+                  <div class="activity-description">{{ activity.description }}</div>
+                  <div class="activity-time">{{ activity.time }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Emergency Contacts -->
+          <div class="info-section">
+            <h3 class="section-title">
+              <i class="fas fa-phone-alt"></i>
+              Emergency Contacts
+            </h3>
+            <div class="contacts-grid">
+              <div class="contact-card" *ngFor="let contact of emergencyContacts">
+                <div class="contact-header">
+                  <h5>{{ contact.name }}</h5>
+                  <span class="relationship">{{ contact.relationship }}</span>
+                </div>
+                <div class="contact-info">
+                  <p><i class="fas fa-phone"></i> {{ contact.phone }}</p>
+                  <p><i class="fas fa-envelope"></i> {{ contact.email }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="profile-footer">
+    <div class="container">
+      <p>&copy; 2025 Rent2Car. All rights reserved. | 
+        <a href="#" class="footer-link">Privacy Policy</a> | 
+        <a href="#" class="footer-link">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+</div>

@@ -1,1 +1,118 @@
-<p>subscription works!</p>
+<!-- Header Section -->
+<header class="header text-center">
+  <div class="container">
+    <div class="logo">Rent2Car</div>
+    <div class="tagline">Flexible car subscriptions for every journey</div>
+  </div>
+</header>
+
+<div class="container">
+  <!-- Subscription Plans -->
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="subscription-card">
+        <div class="plan-name">Essential</div>
+        <div class="price">$199<span class="price-period">/mo</span></div>
+        <div class="total-price">$1,194 billed every 6 months</div>
+        
+        <ul class="features-list">
+          <li>1 vehicle type (Economy)</li>
+          <li>Up to 800 miles per month</li>
+          <li>Basic insurance coverage</li>
+          <li>24/7 Roadside assistance</li>
+          <li>Standard maintenance included</li>
+        </ul>
+        
+        <div class="testimonial">
+          "Perfect for my daily commute. Saved me money compared to traditional leasing."
+          <div class="testimonial-author">- Sarah J., subscribed for 8 months</div>
+        </div>
+        
+        <button class="btn btn-subscribe" (click)="selectPlan('Essential')">Select Plan</button>
+      </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+      <div class="subscription-card featured">
+        <div class="featured-badge">MOST POPULAR</div>
+        <div class="plan-name">Premium</div>
+        <div class="price">$299<span class="price-period">/mo</span></div>
+        <div class="total-price">$897 billed quarterly</div>
+        
+        <ul class="features-list">
+          <li>3 vehicle types (Sedan, SUV, Luxury)</li>
+          <li>Up to 1,200 miles per month</li>
+          <li>Premium insurance coverage</li>
+          <li>Priority roadside assistance</li>
+          <li>Comprehensive maintenance</li>
+          <li>Free car washes (monthly)</li>
+        </ul>
+        
+        <div class="testimonial">
+          "Switched between an SUV for family trips and a sedan for work. Ultimate flexibility!"
+          <div class="testimonial-author">- Michael T., subscribed for 14 months</div>
+        </div>
+        
+        <button class="btn btn-subscribe featured" (click)="selectPlan('Premium')">Select Plan</button>
+      </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+      <div class="subscription-card">
+        <div class="plan-name">Ultimate</div>
+        <div class="price">$449<span class="price-period">/mo</span></div>
+        <div class="total-price">$449 billed monthly</div>
+        
+        <ul class="features-list">
+          <li>All vehicle types available</li>
+          <li>Unlimited mileage</li>
+          <li>Premium Plus insurance</li>
+          <li>24/7 Concierge service</li>
+          <li>All maintenance & detailing included</li>
+          <li>Free delivery & pickup</li>
+          <li>Priority vehicle selection</li>
+        </ul>
+        
+        <div class="testimonial">
+          "As a sales director, I need different cars for different clients. This plan is perfect!"
+          <div class="testimonial-author">- David L., subscribed for 6 months</div>
+        </div>
+        
+        <button class="btn btn-subscribe" (click)="selectPlan('Ultimate')">Select Plan</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Payment Section -->
+  <div class="payment-section">
+    <h3 class="section-title">Billing & Payment</h3>
+    
+    <div class="mb-4">
+      <h5>Choose payment method</h5>
+      <div class="payment-options">
+        <div class="payment-option" [class.active]="selectedPaymentMethod === 'credit'" 
+             (click)="selectPaymentMethod('credit')" data-method="credit">
+          <i class="fas fa-credit-card"></i>
+          <div>Credit Card</div>
+        </div>
+        <div class="payment-option" [class.active]="selectedPaymentMethod === 'paypal'" 
+             (click)="selectPaymentMethod('paypal')" data-method="paypal">
+          <i class="fab fa-paypal"></i>
+          <div>PayPal</div>
+        </div>
+        <div class="payment-option" [class.active]="selectedPaymentMethod === 'bank'" 
+             (click)="selectPaymentMethod('bank')" data-method="bank">
+          <i class="fas fa-university"></i>
+          <div>Bank Transfer</div>
+        </div>
+      </div>
+    </div>
+    
+    <button class="btn btn-continue" (click)="continueToBilling()">Continue to Billing Details</button>
+  </div>
+  
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2025 Rent2Car. All rights reserved. | <a href="#" class="text-decoration-none">Privacy Policy</a> | <a href="#" class="text-decoration-none">Terms of Service</a></p>
+  </div>
+</div>

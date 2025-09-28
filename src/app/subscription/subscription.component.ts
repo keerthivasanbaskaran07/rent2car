@@ -2,11 +2,21 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-subscription',
-  standalone: true,
-  imports: [],
   templateUrl: './subscription.component.html',
-  styleUrl: './subscription.component.scss'
+  styleUrls: ['./subscription.component.scss']
 })
 export class SubscriptionComponent {
+  selectedPaymentMethod: string = 'credit';
 
+  selectPlan(planName: string) {
+    alert(`You've selected the ${planName} subscription!`);
+  }
+
+  selectPaymentMethod(method: string) {
+    this.selectedPaymentMethod = method;
+  }
+
+  continueToBilling() {
+    alert(`Proceeding to billing details with ${this.selectedPaymentMethod} payment method.`);
+  }
 }

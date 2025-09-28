@@ -20,6 +20,7 @@ import { CustomersComponent } from './more/customers/customers.component';
 import { ReviewComponent } from './more/review/review.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HelpComponent } from './more/help/help.component';
+import { DriverProfileComponent } from './more/driver-profile/driver-profile.component';
 
 export const routes: Routes = [
     {path:'loginAcc', component:LoginComponent},
@@ -41,7 +42,8 @@ export const routes: Routes = [
     {path: 'customers', component:CustomersComponent},
     {path: 'review', component:ReviewComponent},
     {path: 'contact', component:ContactUsComponent},
-    {path: 'help', component:HelpComponent}
+    {path: 'help', component:HelpComponent},
+    {path:'Dprofile', component:DriverProfileComponent}
     
     
 

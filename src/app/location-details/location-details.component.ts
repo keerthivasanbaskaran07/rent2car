@@ -37,7 +37,7 @@ export class LocationDetailsComponent implements OnInit {
   locationName3:any;
   locationName4:any;
   locationName5:any;
-  location: any;
+location: any;
   constructor(private apiService: ApiService, private sessionService:SessionService,private router: Router ){
       // this.sessionService.validateUserSession();
     }
@@ -50,7 +50,6 @@ export class LocationDetailsComponent implements OnInit {
         (responseData : any) => {
            this.setLocationData(responseData[0]);
            this.LocationDetails=responseData;
-           console.log(this.LocationDetails)
         },
         err =>{console.log(err)}
       )
