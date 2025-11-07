@@ -1,3 +1,4 @@
+<!-- ========== Modal Content 1 (City Selector) ========== -->
 <ng-template #content1 let-c="close" let-d="dismiss">
 	<div class="modal-header">
 		<h4 class="modal-title" id="modal-basic-title">Rent 2 Car</h4>
@@ -66,6 +67,7 @@
 	</div>
 </ng-template>
 
+<!-- ========== Modal Content 2 (Date Picker) ========== -->
 <ng-template #content2 let-c="close" let-d="dismiss">
 	<div class="modal-header">
 		<h4 class="modal-title" id="modal-basic-title">Rent 2 Car</h4>
@@ -79,7 +81,7 @@
 	</div>
 </ng-template>
 
-<ng-container *ngIf="!cndn && cityInput">
+<!-- <ng-container *ngIf="!cndn && cityInput">
 	<input class="form-control form-control-lg px-3 mb-3" type="text" placeholder="Drop Off Location"
 		aria-label=".form-control-lg example" [class]="cssInpt" (click)="open(content1)">
 </ng-container>
@@ -89,9 +91,35 @@
 </ng-container>
 <ng-container *ngIf="cndn">
 	<button [class]="cssClass" (click)="open(content1)">Send Message</button>
-</ng-container>
+</ng-container> -->
 
 <!-- <div class="form-floating mb-3">
 	<input type="text" class="form-control" id="text" placeholder="Drop Off Location" [class]="cssClass" (click)="open(content)">
 	<label for="floatingInput"> pick up location</label>
   </div> -->
+
+
+  <!-- ✅ CHANGED: Using mode checks -->
+<ng-container *ngIf="mode === 'city'">
+  <input
+    class="form-control form-control-lg px-3 mb-3"
+    [ngClass]="inputClass"
+    type="text"
+    placeholder="Pick-up Location"
+    (click)="open(content1)"
+  />
+</ng-container>
+
+<ng-container *ngIf="mode === 'date'">
+  <input
+    class="form-control form-control-lg px-3 mb-3"
+    [ngClass]="inputClass"
+    type="text"
+    placeholder="Select Date Range"
+    (click)="open(content2)"
+  />
+</ng-container>
+
+<ng-container *ngIf="mode === 'button'">
+  <button [class]="cssClass" (click)="action.emit()">Send Message</button>
+</ng-container>

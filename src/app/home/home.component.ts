@@ -18,19 +18,25 @@ import { SessionService } from '../services/session.service';
 })
 export class HomeComponent {
 
-  
-  loanId : string = '';
-  cssClass : string= 'btn btn-brand';
-  cssInpt : string = 'form-control';
-  btnCdn : boolean = false;
 
-  constructor(private router: Router,   private sessioService : SessionService){}
+  // loanId : string = '';
+  // cssClass : string= 'btn btn-brand';
+  // cssInpt : string = 'form-control';
+  // btnCdn : boolean = false;
+  cssClass: string = 'btn btn-brand';
+  cssInpt: string = 'form-control';
+
+  constructor(private router: Router, private sessionService: SessionService) { }
 
 
-  gotoDetailsLocatoin(){
-    this.sessioService.setLocationSession([]);
+  gotoDetailsLocatoin() {
+    this.sessionService.setLocationSession([]);
     this.router.navigate(['/locationDts']);
   }
-  
+
+  SearchAlt() {
+    alert('server is busy !!! please try again later !!!')
+  }
+
 
 }

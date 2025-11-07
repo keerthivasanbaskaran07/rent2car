@@ -1,7 +1,7 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 
-    <div class="container-fluid "  *ngFor="let location of LocationDetails">
+    <!-- <div class="container-fluid "  *ngFor="let location of LocationDetails">
         <div class="row row-cols-2">
             <div class="col-6 col-md-6" >
                 <section class="home">
@@ -22,16 +22,15 @@
             <div class="col-6 col-md-6" >
                 <section id="sign">
                     <div class="col-lg-12" data-aos="fade-up-right" data-aos-delay="300" data-aos-duration="1000">
-                        <form action="#" class="row g-3 p-lg-5 p-4  theme-shadow" id="form" [formGroup]="LocationData">
-                            <!-- <div>
+                        <form action="#" class="row g-3 p-lg-5 p-4  theme-shadow" id="form" [formGroup]="LocationData"> 
+                             <div>
                                 <div class="input-group mb-4">
 
                                     <input type="text" class="form-control px-3 text-uppercase fs-5 " aria-label="Sizing example input" id="locName1" [value]="LocationDetails[0].locationName1"
                                         aria-describedby="inputGroup-sizing-default" [(ngModel)]="loc1" readonly (click)="goToCarDetails(location.id)" >
                                 </div>
-                            </div> -->
-
-                            <div class="input-group mb-4">
+                            </div> 
+                            < <div class="input-group mb-4">
 
                                 <input type="text" class="form-control px-3 text-uppercase fs-5 " aria-label="Sizing example input" id="locationName1"
                                     aria-describedby="inputGroup-sizing-default" formControlName="locationName1" readonly (click)="goToCarDetails(location.id)" >
@@ -67,8 +66,42 @@
             </div>
         </div>
 
+    </div> -->
+
+    <div class="container-fluid py-5" *ngFor="let location of LocationDetails">
+    <div class="row g-5 align-items-center">
+
+    <!-- Left: Details / Form -->
+    <div class="col-lg-6 col-md-12 order-lg-1 order-2">
+      <div class="text-section">
+        <h1 class="display-4 fw-bold">{{ location.lName }}</h1>
+        <h3 class="text-primary mb-4">Best Rental Cars Available Here</h3>
+
+        <form [formGroup]="LocationData">
+          <div class="row g-3">
+            <div class="col-12 col-md-6" *ngFor="let i of [1,2,3,4,5]">
+              <input 
+                type="text" 
+                class="form-control form-control-lg" 
+                [formControlName]="'locationName' + i" 
+                readonly 
+                (click)="goToCarDetails(location.id)"
+              >
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
 
+    <!-- Right: Image -->
+    <div class="col-lg-6 col-md-12 order-lg-2 order-1">
+      <div class="image-container mx-auto">
+        <img [src]="location.ImgLocation" [alt]="location.lName" class="img-fluid image-zoom">
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
 <!-- <section id="reviews" class="reviews">

@@ -1,9 +1,11 @@
+
 :host {
   --primary-color:  #7000f0;
   --secondary-color: #f8f9fa;
   --accent-color: #ff6b35;
   --text-color: #333;
   --light-text: #6c757d;
+  --light-color: #b3e5fc ;
 }
 
 .subscription-container {
@@ -17,7 +19,7 @@
   background: linear-gradient(135deg, var(--primary-color), #1e3a8a);
   color: white;
   padding: 2rem 0;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 20px 20px; /* top-left | top-right | bottom-right | bottom-left */
   margin-bottom: 2rem;
 }
 
@@ -33,7 +35,7 @@
 }
 
 .subscription-card {
-  background: white;
+  background: var(--light-color);
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   padding: 2rem;
@@ -114,6 +116,7 @@
   border-radius: 10px;
   padding: 1.5rem;
   margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   font-style: italic;
   position: relative;
 
@@ -164,7 +167,7 @@
 }
 
 .payment-section {
-  background: white;
+  background: var(--light-color);
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   padding: 2rem;

@@ -41,4 +41,8 @@ gotoHome(){
         )
   
       }
+
+      gotoPaymentPage(){
+      this.router.navigate(['/payment']);
+	  }
 }

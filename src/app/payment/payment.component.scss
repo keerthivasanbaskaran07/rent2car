@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.booking-payment-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #081b29, #7000f0);
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+}
+
+.payment-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem;
+  color: #fff;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 40px rgba(112, 0, 240, 0.4);
+  }
+
+  .title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 0.3rem;
+      position: relative;
+      overflow: hidden;
+
+      label {
+        font-size: 0.9rem;
+        color: #cfcfcf;
+        margin-bottom: 0.4rem;
+        line-height: 1.2;
+        word-wrap: break-word;
+        white-space: normal;
+        text-align: left;
+        padding-left: 2px;
+      }
+
+      input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 8px;
+        padding: 0.85rem 1rem;
+        color: #fff;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+
+        &:focus {
+          outline: none;
+          background: rgba(255, 255, 255, 0.25);
+          border-color: #a055ff;
+          box-shadow: 0 0 10px rgba(112, 0, 240, 0.4);
+        }
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+
+      .form-group {
+        flex: 1;
+        margin-bottom: 0;
+      }
+    }
+
+    .pay-btn {
+      margin-top: 1.8rem;
+      background: linear-gradient(45deg, #7000f0, #a055ff);
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 10px;
+      padding: 0.9rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(112, 0, 240, 0.6);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .payment-card {
+    padding: 1.8rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  form {
+    gap: 1rem;
+
+    .form-group label {
+      font-size: 0.85rem;
+    }
+
+    input {
+      font-size: 0.95rem;
+    }
+  }
+}

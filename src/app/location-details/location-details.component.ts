@@ -29,7 +29,7 @@ export class LocationDetailsComponent implements OnInit {
         
       }
     );
- LocationDetails:any;
+  LocationDetails:any;
   lName:any;
   ImgLocation:any;
   locationName1:any;
@@ -37,7 +37,7 @@ export class LocationDetailsComponent implements OnInit {
   locationName3:any;
   locationName4:any;
   locationName5:any;
-location: any;
+  location: any;
   constructor(private apiService: ApiService, private sessionService:SessionService,private router: Router ){
       // this.sessionService.validateUserSession();
     }
@@ -66,7 +66,7 @@ location: any;
       this.LocationData.get('locationName5')?.setValue(responseData.locationName5);
     }
     goToCarDetails(CId:string){
-      this.sessionService.SetCarsSession(CId);
+      this.sessionService.setCarsSession(CId);
       this.router.navigate(['/carDts']);
 	  }
   

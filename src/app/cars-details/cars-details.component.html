@@ -1,132 +1,167 @@
+<nav class="navbar navbar-expand-lg bg-light sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">Rent2Car</a>
+    <button class="btn btn-brand ms-lg-3" type="button" (click)="gotoHome()">
+      <i class="ri-home-8-line pe-2"></i>Back To Home
+    </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<nav class="navbar navbar-expand-lg bg-light sticky-top ">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="#"></a>
-      <span> <button class="btn btn-brand ms-lg-3" type="button" (click)="gotoHome()" ><i class="ri-home-8-line pe-2" ></i>Back To Home </button></span>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto align-items-center">
+        <li class="nav-item me-2">
+          <span class="nav-link2 fw-semibold">Sort By:</span>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-brand mx-1" type="button">Price: Low → High</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-brand mx-1" type="button">Price: High → Low</button>
+        </li>
+      </ul>
+      <button class="btn btn-brand ms-lg-3" type="button" id="filterBtn">
+        <i class="ri-filter-2-line pe-2"></i>Filter <i class="ri-arrow-down-s-fill"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item mt-1N">
-            <a class="nav-link2" >Sort By:</a>
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-brand ms-lg-3" type="button" >Price : Low TO High</button>
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-brand ms-lg-3" type="button" >Price : High TO Low</button>
-          </li>
-
-         </ul>
-        <span id="lgoBtn" ><button class="btn btn-brand ms-lg-3" type="button"><i class="ri-filter-2-line pe-2"></i>Filter <i class="ri-arrow-down-s-fill"></i></button></span>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container-fluid main">
-    <div class="row ">
-      <div class="col-4 mt-4" *ngFor="let carData of carsDetailsData" >
-        <div class="row" id="info">
-          <span class="py-4 text-success fs-4"><i class="ri-map-pin-line "></i> Pick Up Information</span>
-          <span class="ms-4 text-danger fs-4">{{carData.pickUpInfo1}}</span>
-          
-        </div>
-        <div class="row" id="info">
-          <span class="py-4 text-success fs-4"> <i class="ri-map-pin-line"></i> Drop Off Information</span>
-          <span class="ms-4 text-danger fs-5">{{carData.dropOffInfo}}</span>
-          
-        </div>
-      
-      </div>
-      <div class="col-8  mt-4" *ngFor="let carDataOne of carsDetailsData">
-        <div ngbScrollSpy #spy="ngbScrollSpy" class="bg-light p-3 rounded-2 mb-3" style="height: 500px"  >
-          <div class="row mb-4" id="car">
-            <div class="col">
-              <img id="carImg" class="mt-2" src="assets/images/dzire-2024.webp" alt="">
-            </div>
-            <div class="col-6 mt-3" >
-              <h1>{{carDataOne.carName1}}</h1>
-              <p>{{carDataOne.carType1}}</p>
-            </div>
-            <div class="col mt-3">
-             <h1 class="text-danger">₹{{carDataOne.carRprice}}</h1>
-              <P>For 149 WithOut Fuel</P>
-              <button class="btn btn-brand ms-lg-3" type="button" >Book now</button>
-            </div>
-          </div>
-          <div class="row mb-4" id="car">
-            <div class="col">
-              <img id="carImg" class="mt-2" src="assets/images/new-swift.png" alt="">
-            </div>
-            <div class="col-6 mt-3" >
-              <h1>{{carDataOne.carName2}}</h1>
-              <p>{{carDataOne.carType2}}</p>
-            </div>
-            <div class="col mt-3">
-             <h1 class="text-danger">₹{{carDataOne.carRprice}}</h1>
-              <P>For 149 WithOut Fuel</P>
-              <button class="btn btn-brand ms-lg-3" type="button" >Book now</button>
-            </div>
-          </div>
-          <div class="row mb-4" id="car">
-            <div class="col">
-              <img id="carImg" class="mt-2" src="assets/images/tiago.webp" alt="">
-            </div>
-            <div class="col-6 mt-3" >
-              <h1>{{carDataOne.carName3}}</h1>
-              <p>{{carDataOne.carType3}}</p>
-            </div>
-            <div class="col mt-3">
-              <h1 class="text-danger">₹{{carDataOne.carRprice}}</h1>
-              <P>For 149 WithOut Fuel</P>
-              <button class="btn btn-brand ms-lg-3" type="button" >Book now</button>
-            </div>
-          </div>
-          <div class="row mb-4" id="car">
-            <div class="col">
-              <img id="carImg" class="mt-2" src="assets/images/vitara-car.webp" alt="">
-            </div>
-            <div class="col-6 mt-3" >
-              <h1>{{carDataOne.carName4}}</h1>
-              <p>{{carDataOne.carType4}}</p>
-            </div>
-            <div class="col mt-3">
-             <h1 class="text-danger">₹{{carDataOne.carRprice}}</h1>
-              <P>For 149 WithOut Fuel</P>
-              <button class="btn btn-brand ms-lg-3" type="button" >Book now</button>
-            </div>
-          </div>
-          <div class="row mb-4" id="car">
-            <div class="col">
-              <img id="carImg" class="mt-2" src="assets/images/xuv-3xo.webp" alt="">
-            </div>
-            <div class="col-6 mt-3" >
-              <h1>{{carDataOne.carName5}}</h1>
-              <p>{{carDataOne.carType5}}</p>
-            </div>
-            <div class="col mt-3">
-             <h1 class="text-danger">₹{{carDataOne.carRprice}}</h1>
-              <P>For 149 WithOut Fuel</P>
-              <button class="btn btn-brand ms-lg-3" type="button" >Book now</button>
-            </div>
-          </div>
-          <div class="row mb-4" id="car">
-            <div class="col">
-              <img id="carImg" class="mt-2" src="assets/images/toyota-urban-cruiser.webp" alt="">
-            </div>
-            <div class="col-6 mt-3" >
-              <h1>{{carDataOne.carName6}}</h1>
-              <p>{{carDataOne.carType6}}</p>
-            </div>
-            <div class="col mt-3">
-             <h1 class="text-danger">₹{{carDataOne.carRprice}}</h1>
-              <P>For 149 WithOut Fuel</P>
-              <button class="btn btn-brand ms-lg-3" type="button" >Book now</button>
-            </div>
-          </div>
-        </div>     
-      </div>
     </div>
   </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="container-fluid main py-4">
+  <div class="row g-4">
+
+    <!-- LEFT COLUMN -->
+    <div class="col-12 col-lg-4" *ngFor="let carData of carsDetailsData">
+
+      <div class="info-card">
+        <h5 class="text-success"><i class="ri-map-pin-line"></i> Pick Up Information</h5>
+        <p class="text-danger fw-bold">{{carData.pickUpInfo1}}</p>
+      </div>
+
+      <div class="info-card">
+        <h5 class="text-success"><i class="ri-map-pin-line"></i> Drop Off Information</h5>
+        <p class="text-danger fw-bold">{{carData.dropOffInfo}}</p>
+      </div>
+
+      <!--  LIVE LOCATION MAP -->
+      <div class="card shadow-sm border-0 mt-3">
+        <div class="card-body">
+          <h6 class="text-success fw-bold mb-2">
+            <i class="ri-map-pin-2-line"></i> Live Location Map
+          </h6>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.278616235601!2d144.96305791531572!3d-37.814107979751894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf0727c1f2e8b2f4b!2sMelbourne%20CBD%2C%20Australia!5e0!3m2!1sen!2sin!4v1697064670021!5m2!1sen!2sin"
+            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- AVAILABLE CARS SECTION -->
+      <div class="card shadow-sm border-0 mt-4">
+        <div class="card-body">
+          <h5 class="fw-bold mb-3 text-primary">
+            <i class="ri-car-line"></i> Cars Available for Rent
+          </h5>
+
+          <div class="row g-3">
+            <!-- Car 1 -->
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm car-card">
+                <img src="assets/images/vitara-car.webp" style="width:100px;  height: 70px;" class="card-img-top" alt="Car 1">
+                <div class="card-body">
+                  <h6 class="card-title fw-bold">Toyota Innova</h6>
+                  <p class="text-muted mb-1">🕐 Available Now</p>
+                  <p class="fw-semibold text-success mb-0">₹1,800 / day</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                  <button class="btn btn-outline-primary w-100">Rent Now</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Car 2 -->
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm car-card">
+                <img src="assets/images/toyota-urban-cruiser.webp" style="width:100px;  height: 70px;" class="card-img-top" alt="Car 2">
+                <div class="card-body">
+                  <h6 class="card-title fw-bold">Hyundai Creta</h6>
+                  <p class="text-muted mb-1">⏳ Booked (Available in 2 hrs)</p>
+                  <p class="fw-semibold text-warning mb-0">₹2,000 / day</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                  <button class="btn btn-outline-secondary w-100" disabled>Booked</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Car 3 -->
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm car-card">
+                <img src="assets/images/dzire-2024.webp" style="width:100px;  height: 70px;" class="card-img-top" alt="Car 3">
+                <div class="card-body">
+                  <h6 class="card-title fw-bold">Honda City</h6>
+                  <p class="text-muted mb-1">🕐 Available Now</p>
+                  <p class="fw-semibold text-success mb-0">₹1,500 / day</p>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                  <button class="btn btn-outline-primary w-100">Rent Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col-12 col-lg-8" *ngFor="let carDataOne of carsDetailsData">
+      <div class="car-list bg-light p-3 rounded-3 shadow-sm">
+
+        <!-- ONE CAR CARD -->
+        <div class="row align-items-center car-card">
+          <div class="col-12 col-md-4 text-center">
+            <img class="car-img img-fluid" src="assets/images/dzire-2024.webp" alt="">
+          </div>
+          <div class="col-12 col-md-4 mt-2">
+            <h5>{{carDataOne.carName1}}</h5>
+            <p class="text-muted">{{carDataOne.carType1}}</p>
+          </div>
+          <div class="col-12 col-md-4 text-center mt-2">
+            <h4 class="text-danger">₹{{carDataOne.carRprice}}</h4>
+            <p>For 149 Without Fuel</p>
+            <button class="btn btn-brand" (click)="gotoPaymentPage()">Book now</button>
+          </div>
+        </div>
+
+        <!-- Repeat for other cars -->
+        <div class="row align-items-center car-card" *ngFor="let car of [
+            {img:'new-swift.png', name:carDataOne.carName2, type:carDataOne.carType2},
+            {img:'tiago.webp', name:carDataOne.carName3, type:carDataOne.carType3},
+            {img:'vitara-car.webp', name:carDataOne.carName4, type:carDataOne.carType4},
+            {img:'xuv-3xo.webp', name:carDataOne.carName5, type:carDataOne.carType5},
+            {img:'toyota-urban-cruiser.webp', name:carDataOne.carName6, type:carDataOne.carType6}
+          ]">
+          <div class="col-12 col-md-4 text-center">
+            <img class="car-img img-fluid" [src]="'assets/images/' + car.img" alt="">
+          </div>
+          <div class="col-12 col-md-4 mt-2">
+            <h5>{{car.name}}</h5>
+            <p class="text-muted">{{car.type}}</p>
+          </div>
+          <div class="col-12 col-md-4 text-center mt-2">
+            <h4 class="text-danger">₹{{carDataOne.carRprice}}</h4>
+            <p>For 149 Without Fuel</p>
+            <button class="btn btn-brand" (click)="gotoPaymentPage()">Book now</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

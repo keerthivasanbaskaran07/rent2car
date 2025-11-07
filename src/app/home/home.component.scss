@@ -92,3 +92,48 @@
     border-radius: 0;
     font-weight: 600;
 }
+
+/* 📱 MOBILE VIEW FIXES */
+@media (max-width: 576px) {
+
+  /* ✅ 1. Make background image fit perfectly */
+  #hero {
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ✅ 2. Move #info BELOW the first container visually */
+  #hero > .container-fluid#info {
+    order: 2; /* moves #info after the first container */
+    margin-top: 40px;
+  }
+
+  /* Ensure the first container stays on top */
+  #hero > .container-fluid:first-child {
+    order: 1;
+  }
+
+  /* Optional: tighten padding for mobile */
+  #hero .container-fluid {
+    padding: 0 20px;
+  }
+
+  /* Improve spacing and text scaling */
+  #info {
+    padding: 20px;
+  }
+
+  h1.display-6 {
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+
+  h5.fs-6 {
+    font-size: 0.9rem;
+  }
+}
