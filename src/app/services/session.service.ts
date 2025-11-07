@@ -1,156 +1,108 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
-
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
-
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object   // ✅ Added
+  ) {}
 
   public isUserLoggedIn: boolean = false;
   private secretKey = 'My@Super$SecretKey2025!';
 
+  // ✅ Utility to check if running in browser
+  private isBrowser(): boolean {
+    return isPlatformBrowser(this.platformId);
+  }
 
-  // setUserSession(user:any){
-  //   sessionStorage.setItem('UserId', user.id);
-  //   sessionStorage.setItem('UserName', user.userName);            
-  //   sessionStorage.setItem('UserType', user.userType);
-  // }
-
-  // updates 
-
+  // ✅ Updated to be SSR-safe
   setUserSession(user: any) {
-    // Convert numeric ID to string for encryption
+    if (!this.isBrowser()) return; // prevent Node access
+
     const userIdString = user.id.toString();
-
-    // Generate a random salt to make encryption unique every login
     const salt = Date.now().toString() + Math.random().toString(36).substring(2, 8);
-
-    // Encrypt user id using AES + salt
     const encryptedId = CryptoJS.AES.encrypt(userIdString, this.secretKey + salt).toString();
-
-    // Store salt + encrypted text together (salt::cipher)
     const encryptedSessionId = `${salt}::${encryptedId}`;
 
-    // Save to sessionStorage
     sessionStorage.setItem('UserId', encryptedSessionId);
     sessionStorage.setItem('UserName', user.userName);
     sessionStorage.setItem('UserType', user.userType);
   }
 
   validateUserSession() {
+    if (!this.isBrowser()) return; // ✅ Prevent during SSR
+
     let userId = sessionStorage.getItem('UserId') || '';
     if (userId == '') {
-      alert("Session Expired .. Please login again....");
+      alert('Session Expired .. Please login again....');
       this.router.navigate(['/loginAcc']);
     }
   }
 
-  // getUserId() {
-  //   return sessionStorage.getItem('UserId') || '';
-  // }
-
-  //  updates to decrypted
-
   getUserId(): string {
+    if (!this.isBrowser()) return ''; // ✅ Added
+
     const storedData = sessionStorage.getItem('UserId');
-    if (!storedData || !storedData.includes('::')) return ''; // :: symbol name delimiter
+    if (!storedData || !storedData.includes('::')) return '';
 
     const [salt, cipherText] = storedData.split('::');
-
-    // Decrypt using the same secret key + stored salt
     const bytes = CryptoJS.AES.decrypt(cipherText, this.secretKey + salt);
     const decryptedId = bytes.toString(CryptoJS.enc.Utf8);
     return decryptedId;
   }
 
-
-
-
   isSessionAvailable() {
+    if (!this.isBrowser()) return false; // ✅ Added
     let userId = sessionStorage.getItem('UserId') || '';
-    if (userId == '')
-      return false;
-    return true;
+    return userId !== '';
   }
 
-  // setLocationSession(lId: any) {
-  //   sessionStorage.setItem('locationId', lId);
-  // }
-  // 1️⃣ Encrypt and save LOCATION (string)
+  // ✅ Added browser guard to all storage-based methods
   setLocationSession(lId: any) {
+    if (!this.isBrowser()) return;
     const locationString = lId.toString();
-
-    // Random salt for uniqueness
     const salt = Date.now().toString() + Math.random().toString(36).substring(2, 8);
-
-    // Encrypt the location string
     const encryptedLocation = CryptoJS.AES.encrypt(locationString, this.secretKey + salt).toString();
-
-    // Store salt::cipher
     const encryptedData = `${salt}::${encryptedLocation}`;
-
-    // Save to session
     sessionStorage.setItem('locationId', encryptedData);
   }
 
-
-  //   getLocationId() {
-  //   return sessionStorage.getItem('locationId') || '';
-  // }
-
-  // 2️⃣ Decrypt and get LOCATION
   getLocationId(): string {
+    if (!this.isBrowser()) return '';
     const storedData = sessionStorage.getItem('locationId');
     if (!storedData || !storedData.includes('::')) return '';
-
     const [salt, cipherText] = storedData.split('::');
     const bytes = CryptoJS.AES.decrypt(cipherText, this.secretKey + salt);
     const decryptedLocation = bytes.toString(CryptoJS.enc.Utf8);
     return decryptedLocation;
   }
 
-
-  // SetCarsSession(cId: any) {
-  //   sessionStorage.setItem('carsId', cId);
-  // }
-
-  // 3️⃣ Encrypt and save CAR ID (number)
   setCarsSession(cId: any) {
+    if (!this.isBrowser()) return;
     const carsIdString = cId.toString();
-
-    // Random salt for uniqueness
     const salt = Date.now().toString() + Math.random().toString(36).substring(2, 8);
-
-    // Encrypt numeric ID
     const encryptedCarsId = CryptoJS.AES.encrypt(carsIdString, this.secretKey + salt).toString();
-
-    // Combine salt and cipher
     const encryptedData = `${salt}::${encryptedCarsId}`;
-
-    // Save to session
     sessionStorage.setItem('carsId', encryptedData);
   }
 
-  // getCarsId() {
-  //   return sessionStorage.getItem('carsId') || '';
-  // }
-  // 4️⃣ Decrypt and get CAR ID
   getCarsId(): string {
+    if (!this.isBrowser()) return '';
     const storedData = sessionStorage.getItem('carsId');
     if (!storedData || !storedData.includes('::')) return '';
-
     const [salt, cipherText] = storedData.split('::');
     const bytes = CryptoJS.AES.decrypt(cipherText, this.secretKey + salt);
     const decryptedCarId = bytes.toString(CryptoJS.enc.Utf8);
     return decryptedCarId;
   }
 
-
   logoutSession() {
+    if (!this.isBrowser()) return; // ✅ Prevent during SSR
     this.isUserLoggedIn = false;
     sessionStorage.removeItem('UserId');
     sessionStorage.removeItem('UserName');
@@ -159,4 +111,4 @@ export class SessionService {
       this.router.navigate(['loginAcc']);
     }, 3000);
   }
-} 
+}
